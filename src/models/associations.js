@@ -31,7 +31,7 @@ Message.belongsTo(User, {
     foreignKey: "receiver_id",
     as: "receiver"
 });  
-//associaton by FKf rfor table label with event 
+//associaton by FK for table label with event 
 Label.hasMany(Event,{
     foreignKey: "label_id",
     as: "events"
@@ -41,27 +41,27 @@ Event.belongsTo(Label,{
     as: "label"
 });
 
-// creating association table for a association many to many 
+// creating association table for a association many to many bitween user table and event table
 User.belongsToMany(Event, {
     through: 'user_event',
     foreignKey: "user_id",
     as: "events"
 });
-
 Event.belongsToMany(User, {
     through: 'user_event',
     foreignKey: "event_id",
     as: "users"
 });
-
+// creating association table for a association many to many bitween user table and label table
 User.belongsToMany(Label, {
     through: 'user_label',
     foreignKey: "user_id",
     as: "labels"
 });
-
 Label.belongsToMany(User, {
     through: 'user_label',
     foreignKey: "label_id",
     as: "users"
 });
+
+export {Label, User, Event, Message, Role};
