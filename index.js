@@ -14,7 +14,6 @@ app.use(cors({
   origin: "*" // * = allow everyone (not a best practice, but it's fine for local development)
 }));
 
-
 // Body parser configuration (to retrieve form data)
 app.use(express.urlencoded({ extended: true }));
 
