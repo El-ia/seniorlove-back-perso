@@ -1,0 +1,34 @@
+# services est le premier mot clé du fichier yaml on y mettre nos services dedans
+services:
+  seniorlove-app:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      seniorlove-db:
+          condition: service_healthy
+          restart: true
+    develop:
+      watch:
+        - action: sync
+          path: ./src
+          target: /app/src
+        - action: rebuild
+          path: package.json
+  seniorlove-db:
+    image: "postgres"
+    environment:
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
+    healthcheck:
+        test: ["CMD-SHELL", "pg_isready -U ${PGUSER} -d ${PGDATABASE}"]
+        interval: 10s
+        retries: 5
+        start_period: 30s
+        timeout: 10s
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
