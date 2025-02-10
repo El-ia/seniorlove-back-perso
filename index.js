@@ -22,31 +22,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //app.use(router);
-
+app.json("greetting");
 // Start a server
 const PORT = process.env.PORT || 3000; // Fallback value if process.env.PORT is undefined, default to port 3000
 app.listen(PORT, () => {
   console.log(`🚀 Server listening at http://localhost:${PORT}`);
 });
-
-
-
-
-
-//import "dotenv/config";
-//import express from "express";
-
-
-//const app = express();
-
-
-//app.get('/', (req, res) => {
-//res.send('Hello World');
-//});
-
-
-// Lancer un serveur
-//const PORT = process.env.PORT || 3000; // Valeur de rattrapage (fallback) si process.env.PORT === undefined, on lancera par défaut sur le port 3000
-//app.listen(PORT, () => {
-//console.log(`🚀 Server listening at http://localhost:${PORT}`);
-//});
