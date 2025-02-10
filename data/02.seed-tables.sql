@@ -6,7 +6,7 @@ INSERT INTO "role" ("id", "name") VALUES
 (1, 'Admin'),
 (2, 'User');
 
-INSERT INTO "user" ("id", "slugify", "gender", "firstname", "email", "password", "description", "age", "height", "smoker", "marital", "pet", "city", "music", "picture", "zodiac", "gender_match", "role_id") VALUES
+INSERT INTO "user" ("id", "slug", "gender", "firstname", "email", "password", "description", "age", "height", "smoker", "marital", "pet", "city", "music", "picture", "zodiac", "gender_match", "role_id") VALUES
 (1, 'jean', 'Homme', 'Jean', 'jean60@example.com', 'Retraité2023!', 'Passionné de jardinage et de cuisine.',  62, 175, false, 'Célibataire', true, 'PARIS', 'Jazz', NULL, 'Gémeaux', 'Femme', 2),
 (2, 'marie', 'Femme', 'Marie', 'marie62@example.com', 'Passionnée$2024', 'Aime les randonnées en montagne.', 65, 160, true, 'Veuve', false, 'LYON', 'Classique', NULL, 'Taureau', 'Homme', 2),
 (3, 'claude', 'Homme', 'Claude', 'claude65@example.com', 'Cl@ude1958!', 'Enthousiaste de photographie.', 67, 180, false, 'Divorcé', true, 'TOULOUSE', 'Rock', NULL, 'Balance', 'Femme', 2),
@@ -37,7 +37,7 @@ INSERT INTO "label" ("id", "name") VALUES
 (5, 'soirée à thème');
 
 
-INSERT INTO "event" ("id", "slugify", "title", "description", "date", "time", "city", "street", "street_number", "zip_code", "label_id", "picture") 
+INSERT INTO "event" ("id", "slug", "title", "description", "date", "time", "city", "street", "street_number", "zip_code", "label_id", "picture") 
 VALUES
 (1, 'balade-nature-en-foret', 'Balade Nature en Forêt', 'Une promenade guidée dans la forêt de Fontainebleau pour découvrir la faune et la flore locales.', '2025-05-15', '10:00', 'Paris', 'Rue des Écoles', 34, 75005, 1, 'image1.jpg'),
 (2, 'soiree-theatre-classique', 'Soirée Théâtre Classique', 'Une soirée de théâtre avec une pièce classique de Molière.', '2025-06-22', '19:30', 'Paris', 'Rue du Faubourg Saint-Martin', 7, 75010, 2, 'image2.jpg'),

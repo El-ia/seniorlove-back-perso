@@ -21,7 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //app.use(router);
-app.json("greetting");
+app.get('/', function (req, res) {
+  res.json({"greeting" : "Hello World!"});
+})
+
 // Start a server
 const PORT = process.env.PORT || 3000; // Fallback value if process.env.PORT is undefined, default to port 3000
 app.listen(PORT, () => {
