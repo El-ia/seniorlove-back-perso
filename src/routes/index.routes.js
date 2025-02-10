@@ -12,9 +12,11 @@ export const router = new Router();
 
 //users
 
-router.get("/api/inscription", authController.signUpPage);
-router.post("/api/inscription", authController.signUp);
+router.route("/api/inscription")
+  .get(authController.signUpPage)
+  .post(authController.signUp);
 
 
-router.get("/api/connexion", authController.signInPage);
-router.post("/api/connexion", authController.signIn);
+router.route("/api/connexion")
+  .get(authController.signInPage)
+  .post(authController.signIn);
