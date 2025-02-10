@@ -1,21 +1,14 @@
-
+# Use the LTS version of Node.
 FROM node:lts
-
-
+#Creation of the folder in the container.
 WORKDIR /app
-
-# copy prend 2 arguments, premier : le/les fichiers locaux à copier, deuxieme : ou je le copie
+#Copy the ./package.json and ./package-lock.json to the current directory.
 COPY  ./package.json ./package-lock.json ./
-
-# installer les dépendances du projet via le package.json
+# Run the npm install
 RUN npm install
-
-# je copie le reste des fichiers
-# ! JE sépare l'import du package.json et du reste des fichiers pour préserver la couche npm install en cas de changement mineur de code (GAIN DE TEMPS ENORME AU BUILD)
+#Copy the rest of the files.
 COPY . .
-
-# spécifie sur quel port l'application va tourner dans le container, c'est purement indicatif
+# Expose port 3000.
 EXPOSE 3000
-
-# les commandes qui seront lancés au démarrage du container
+# Start the application.
 CMD ["npm","start"]

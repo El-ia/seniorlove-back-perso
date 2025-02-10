@@ -1,5 +1,5 @@
 BEGIN;
-
+-- Empty the content of the tables.
 TRUNCATE TABLE "user_event", "user_label", "event", "label", "message", "role", "user" RESTART IDENTITY;
 
 INSERT INTO "role" ("id", "name") VALUES
@@ -57,12 +57,10 @@ COMMIT;
 
 
 
--- Mise à jour des séquences d'ID
+-- Update the ID sequences
 
 BEGIN;
 
--- Note : Postgres, avec le fait d'ajouter IDENTITY BY DEFAULT au lieu de ALWAYS, ne met pas à jour le curseur de l'incrément de la séquence de façon implicite !
--- Il faut donc mettre à jour la valeur courante de chacune des séquences en séléctionnant l'id maximum de chaque table une fois le seeding terminé.
 SELECT setval('role_id_seq', (SELECT MAX(id) from "role"));
 SELECT setval('user_id_seq', (SELECT MAX(id) from "user"));
 SELECT setval('label_id_seq', (SELECT MAX(id) from "label"));
