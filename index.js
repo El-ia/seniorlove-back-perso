@@ -1,6 +1,6 @@
 import "dotenv/config";
 import express from "express";
-//import { router } from "./src/routes/index.routes.js";
+import { router } from "./src/routes/index.routes.js";
 
 //security
 import cors from "cors"; // Import cors
@@ -21,10 +21,10 @@ app.use(express.urlencoded({ extended: true }));
 // Allow interpreting data provided in a POST, PATCH, or PUT request as JSON
 app.use(express.json());
 
-//app.use(router);
+app.use(router);
 app.get('/', function (req, res) {
   res.json({"greeting" : "Hello World!"});
-})
+});
 
 // Start a server
 const PORT = process.env.PORT || 3000; // Fallback value if process.env.PORT is undefined, default to port 3000
