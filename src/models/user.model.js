@@ -8,7 +8,7 @@ User.init({
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
-    },
+  },
   gender: {
     type: DataTypes.STRING,
     allowNull: false

@@ -17,6 +17,7 @@ app.use(cors({
 // Body parser configuration (to retrieve form data)
 app.use(express.urlencoded({ extended: true }));
 
+
 // Allow interpreting data provided in a POST, PATCH, or PUT request as JSON
 app.use(express.json());
 
