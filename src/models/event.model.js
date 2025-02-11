@@ -13,6 +13,10 @@ Event.init({
     type: DataTypes.STRING,
     allowNull: false,
   },
+  slug: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
   description: {
     type: DataTypes.TEXT,
     allowNull: false,

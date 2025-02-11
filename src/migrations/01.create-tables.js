@@ -1,14 +1,11 @@
 import 'dotenv/config';
 import { sequelize } from '../models/client.js';
-// Même si on utilise pas les modèles directement, il faut tout de même les importer pour que la synchronisation de sequelize en soit informé.
-// eslint-disable-next-line no-unused-vars
 import { Event, Label, Message, Role, User} from "../models/associations.js"
-
+// Drop all tables if they exist in the database
 await sequelize.drop();
-
+// Synchronize all defined models to the database, creating the tables if they do not exist
 await sequelize.sync();
 
 console.log('Synchronisation terminée');
-
-// On pense a terminer la connexion à la BDD à la fin
+// Close the database connection
 await sequelize.close();
