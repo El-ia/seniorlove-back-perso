@@ -14,12 +14,15 @@ app.use(cors({
   origin: "*" // * = allow everyone (not a best practice, but it's fine for local development)
 }));
 
+// Add JWT middleware to add user to req if token exists and is valid
+app.use(jwtMiddleware);
+
+// Error handling middleware
+app.use(errorHandler);
+
 // Body parser configuration (to retrieve form data)
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Allow interpreting data provided in a POST, PATCH, or PUT request as JSON
-
-// Add JWT middleware to add user to req if token exists and is valid
-app.use(jwtMiddleware);
 
 // Use routes
 app.use(router);
@@ -28,8 +31,7 @@ app.get('/', (req, res) => {
   res.json({ "greeting": "Hello World!" });
 });
 
-// Error handling middleware
-app.use(errorHandler);
+
 
 // Start a server
 const PORT = process.env.PORT || 3000; // Fallback value if process.env.PORT is undefined, default to port 3000

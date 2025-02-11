@@ -73,10 +73,21 @@ export const authController = {
       await newUser.save();
 
       // Generate JWT
-      const token = jwt.sign({ userId: newUser.id }, jwtSecret, { expiresIn: '3h' });
+      const jwtContent = { userId: newUser.id };// Create JWT payload with user ID
+      const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' };// Define JWT options, setting the algorithm and expiration time
+      const token = jwt.sign(jwtContent, jwtSecret, jwtOptions);// Sign the JWT using the secret key and options
 
-      // Return the token
-      return res.status(201).json({ message: 'Utilisateur créé avec succès.', token });
+
+      // Redirect to signIn page 
+      res.redirect("/api/connexion");
+
+      // Return the token and user info
+      return res.status(201).json({ 
+        message: 'Utilisateur créé avec succès.', 
+        logged: true, 
+        pseudo: newUser.firstname,
+        token 
+      });
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: 'Une erreur est survenue lors de la création de l’utilisateur.' });
@@ -118,10 +129,21 @@ export const authController = {
       }
 
       // Generate JWT
-      const token = jwt.sign({ userId: user.id }, jwtSecret, { expiresIn: '3h' });
+      const jwtContent = { userId: user.id }; // Create JWT payload with user ID
+      const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
+      const token = jwt.sign(jwtContent, jwtSecret, jwtOptions); // Sign the JWT using the secret key and options
 
-      // Return the token
-      return res.status(200).json({ message: 'Connexion réussie.', token });
+
+      //redirect home page
+      res.redirect("/");
+
+      // Return the token and user info
+      return res.status(200).json({ 
+        message: 'Connexion réussie.', 
+        logged: true, 
+        pseudo: user.firstname,
+        token 
+      });
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: 'Une erreur est survenue lors de la connexion.' });
