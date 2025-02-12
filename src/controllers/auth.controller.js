@@ -1,18 +1,13 @@
+import jwt from 'jsonwebtoken';
 import passwordValidator from "password-validator";
 import * as argon2 from "argon2";
-import { User} from "../models/user.model.js";
+import { User } from "../models/user.model.js";
 import { Role } from "../models/associations.js";
 
-
-
+const jwtSecret = process.env.JWT_SECRET; // Retrieve the secret key from .env
 
 export const authController = {
 
-  // Render the sign-up page
-  signUpPage(req, res) {
-    res.render("/api/inscription");
-  },
-  
   // Handle user sign-up
   async signUp(req, res) {
     try {
@@ -54,12 +49,12 @@ export const authController = {
       }
 
       // Hash the password
-      const hashedPassword = await argon2.hash(password);
+      //const hashedPassword = await argon2.hash(password);
 
       // Create the user
       const newUser = await User.create({
         email,
-        password: hashedPassword,
+        password, //hashedPassword,
         firstname,
         gender,
         age,
@@ -72,19 +67,25 @@ export const authController = {
       // Save user to database
       await newUser.save();
 
-      // Redirect to login page
-      res.redirect("/api/connexion");
-      return res.status(201).json({ message: 'Utilisateur créé avec succès.' });
+      // Generate JWT
+      const jwtContent = { userId: newUser.id };// Create JWT payload with user ID
+      const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' };// Define JWT options, setting the algorithm and expiration time
+      const token = jwt.sign(jwtContent, jwtSecret, jwtOptions);// Sign the JWT using the secret key and options
+
+
+      // Return the token and user info
+      return res.status(201).json({ 
+        message: 'Utilisateur créé avec succès.', 
+        logged: true, 
+        pseudo: newUser.firstname,
+        token 
+      });
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: 'Une erreur est survenue lors de la création de l’utilisateur.' });
     }
   },
 
-  // Render the sign-in page
-  signInPage(req, res) {
-    res.render("/api/connexion");
-  },
 
   // Handle user sign-in
   async signIn(req, res) {
@@ -110,16 +111,24 @@ export const authController = {
       }
 
       // Verify password
-      const isPasswordValid = await argon2.verify(user.password, password);
+      /*const isPasswordValid = await argon2.verify(user.password, password);
       if (!isPasswordValid) {
         return res.status(401).json({ error: 'Mot de passe incorrect.' });
-      }
+      }*/
 
-      // Store user id in session
-      req.session.userId = user.id;
-      res.redirect("/");
+      // Generate JWT
+      const jwtContent = { userId: user.id }; // Create JWT payload with user ID
+      const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
+      const token = jwt.sign(jwtContent, jwtSecret, jwtOptions); // Sign the JWT using the secret key and options
 
-      return res.status(200).json({ message: 'Connexion réussie.' });
+
+      // Return the token and user info
+      return res.status(200).json({ 
+        message: 'Connexion réussie.', 
+        logged: true, 
+        pseudo: user.firstname,
+        token 
+      });
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: 'Une erreur est survenue lors de la connexion.' });

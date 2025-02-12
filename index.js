@@ -1,29 +1,32 @@
 import "dotenv/config";
 import express from "express";
 import { router } from "./src/routes/index.routes.js";
-
-//security
 import cors from "cors"; // Import cors
 
+import { jwtMiddleware } from "./src/middlewares/jwtMiddleware.js"; // Import JWT middleware
 
 const app = express();
 
 // CORS module: specify who can access the API
 app.use(cors({
-  // origin: ["myfrontend1.com, myfrontend2.fr"]
   origin: "*" // * = allow everyone (not a best practice, but it's fine for local development)
 }));
 
+// Add JWT middleware to add user to req if token exists and is valid
+// app.use(jwtMiddleware);
+
+// Error handling middleware
+// app.use(errorHandler);
+
 // Body parser configuration (to retrieve form data)
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); // Allow interpreting data provided in a POST, PATCH, or PUT request as JSON
 
-
-// Allow interpreting data provided in a POST, PATCH, or PUT request as JSON
-app.use(express.json());
-
+// Use routes
 app.use(router);
-app.get('/', function (req, res) {
-  res.json({"greeting" : "Hello World!"});
+
+app.get('/', (req, res) => {
+  res.json({ "greeting": "Hello World!" });
 });
 
 // Start a server
