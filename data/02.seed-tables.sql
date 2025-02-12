@@ -37,6 +37,13 @@ INSERT INTO "label" ("id", "name") VALUES
 (5, 'soirée à thème');
 
 
+INSERT INTO "user_label" ("user_id", "label_id") 
+VALUES
+(1, 1),
+(1, 2),
+(1, 3);
+
+
 INSERT INTO "event" ("id", "slug", "title", "description", "date", "time", "city", "street", "street_number", "zip_code", "label_id", "picture") 
 VALUES
 (1, 'balade-nature-en-foret', 'Balade Nature en Forêt', 'Une promenade guidée dans la forêt de Fontainebleau pour découvrir la faune et la flore locales.', '2025-05-15', '10:00', 'Paris', 'Rue des Écoles', 34, 75005, 1, 'image1.jpg'),
