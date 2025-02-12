@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { authController } from "../controllers/auth.controller.js";
+import { eventController } from "../controllers/event.controller.js";
 
 
 
@@ -17,3 +18,6 @@ router.route("/api/signup")
   
 router.route("/api/signin")
   .post(authController.signIn);
+
+  router.route("/api/filterevent")
+  .get(eventController.lastEvent)

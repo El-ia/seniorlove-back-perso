@@ -1,8 +1,7 @@
 import jwt from 'jsonwebtoken';
 import passwordValidator from "password-validator";
 import * as argon2 from "argon2";
-import { User } from "../models/user.model.js";
-import { Role } from "../models/associations.js";
+import { Role, User } from "../models/associations.js";
 
 const jwtSecret = process.env.JWT_SECRET; // Retrieve the secret key from .env
 
