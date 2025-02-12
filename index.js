@@ -15,10 +15,10 @@ app.use(cors({
 }));
 
 // Add JWT middleware to add user to req if token exists and is valid
-app.use(jwtMiddleware);
+// app.use(jwtMiddleware);
 
 // Error handling middleware
-app.use(errorHandler);
+// app.use(errorHandler);
 
 // Body parser configuration (to retrieve form data)
 app.use(express.urlencoded({ extended: true }));

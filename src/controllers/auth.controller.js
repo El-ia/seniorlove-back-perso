@@ -8,11 +8,6 @@ const jwtSecret = process.env.JWT_SECRET; // Retrieve the secret key from .env
 
 export const authController = {
 
-  // Render the sign-up page
-  signUpPage(req, res) {
-    res.render("/api/inscription");
-  },
-
   // Handle user sign-up
   async signUp(req, res) {
     try {
@@ -78,9 +73,6 @@ export const authController = {
       const token = jwt.sign(jwtContent, jwtSecret, jwtOptions);// Sign the JWT using the secret key and options
 
 
-      // Redirect to signIn page 
-      res.redirect("/api/connexion");
-
       // Return the token and user info
       return res.status(201).json({ 
         message: 'Utilisateur créé avec succès.', 
@@ -94,10 +86,6 @@ export const authController = {
     }
   },
 
-  // Render the sign-in page
-  signInPage(req, res) {
-    res.render("/api/connexion");
-  },
 
   // Handle user sign-in
   async signIn(req, res) {
@@ -133,9 +121,6 @@ export const authController = {
       const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
       const token = jwt.sign(jwtContent, jwtSecret, jwtOptions); // Sign the JWT using the secret key and options
 
-
-      //redirect home page
-      res.redirect("/");
 
       // Return the token and user info
       return res.status(200).json({ 

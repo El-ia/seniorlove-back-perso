@@ -13,10 +13,9 @@ export const router = new Router();
 //users
 
 router.route("/api/inscription")
-  .get(authController.signUpPage)
   .post(authController.signUp);
+  
 
 
 router.route("/api/connexion")
-  .get(authController.signInPage)
   .post(authController.signIn);
