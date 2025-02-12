@@ -49,12 +49,12 @@ export const authController = {
       }
 
       // Hash the password
-      const hashedPassword = await argon2.hash(password);
+      //const hashedPassword = await argon2.hash(password);
 
       // Create the user
       const newUser = await User.create({
         email,
-        password: hashedPassword,
+        password, //hashedPassword,
         firstname,
         gender,
         age,
@@ -111,10 +111,10 @@ export const authController = {
       }
 
       // Verify password
-      const isPasswordValid = await argon2.verify(user.password, password);
+      /*const isPasswordValid = await argon2.verify(user.password, password);
       if (!isPasswordValid) {
         return res.status(401).json({ error: 'Mot de passe incorrect.' });
-      }
+      }*/
 
       // Generate JWT
       const jwtContent = { userId: user.id }; // Create JWT payload with user ID

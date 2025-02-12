@@ -3,8 +3,6 @@ import express from "express";
 import { router } from "./src/routes/index.routes.js";
 import cors from "cors"; // Import cors
 
-
-import { errorHandler } from "./src/middlewares/isErrorHandlerMiddleware.js"; // Error Handler Middleware
 import { jwtMiddleware } from "./src/middlewares/jwtMiddleware.js"; // Import JWT middleware
 
 const app = express();
