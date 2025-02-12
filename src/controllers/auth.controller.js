@@ -117,9 +117,9 @@ export const authController = {
       }*/
 
       // Generate JWT
-      const jwtContent = { userId: user.id }; // Create JWT payload with user ID
-      const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
-      const token = jwt.sign(jwtContent, jwtSecret, jwtOptions); // Sign the JWT using the secret key and options
+      //const jwtContent = { userId: user.id }; // Create JWT payload with user ID
+      //const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
+      //const token = jwt.sign(jwtContent, jwtSecret, jwtOptions); // Sign the JWT using the secret key and options
 
 
       // Return the token and user info
@@ -127,7 +127,7 @@ export const authController = {
         message: 'Connexion réussie.', 
         logged: true, 
         pseudo: user.firstname,
-        token 
+        //token 
       });
     } catch (error) {
       console.error(error);

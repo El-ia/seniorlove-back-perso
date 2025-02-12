@@ -7,7 +7,10 @@
     "start": "node index.js",
     "db:create": "psql -U seniorlove -d seniorlove -f './data/01.create-tables.sql'",
     "db:seed": "psql -U seniorlove -d seniorlove -f './data/02.seed-tables.sql'",
-    "db:reset": "npm run db:create && npm run db:seed"
+    "db:reset": "npm run db:create && npm run db:seed",
+    "dblocal:create": "node src/migrations/01.create-tables.js",
+    "dblocal:seed": "node src/migrations/02.seed-tables.js",
+    "dblocal:reset": "npm run dblocal:create && npm run dblocal:seed"
   },
   "repository": {
     "type": "git",
