@@ -76,7 +76,7 @@ CREATE TABLE "user_event" (
 );
 
 -- table association many to many between user table and label table
-CREATE TABLE user_label (
+CREATE TABLE "user_label" (
     "user_id" INTEGER REFERENCES "user"("id"),
     "label_id" INTEGER REFERENCES "label"("id"),
     PRIMARY KEY ("user_id", "label_id"),
