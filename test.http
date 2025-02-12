@@ -1,7 +1,0 @@
-POST http://localhost:3000/api/connexion
-Content-Type: application/json
-
-{
-    "email": "jean60@example.com",
-    "password": "Retraité2023!"
-}

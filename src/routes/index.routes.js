@@ -12,10 +12,8 @@ export const router = new Router();
 
 //users
 
-router.route("/api/inscription")
+router.route("/api/signup")
   .post(authController.signUp);
   
-
-
-router.route("/api/connexion")
+router.route("/api/signin")
   .post(authController.signIn);
