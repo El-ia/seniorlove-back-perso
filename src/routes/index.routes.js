@@ -19,5 +19,5 @@ router.route("/api/signup")
 router.route("/api/signin")
   .post(authController.signIn);
 
-  router.route("/api/filterevent")
-  .get(eventController.lastEvent)
+router.route("/api/filterevent")
+  .get(eventController.lastEvent);

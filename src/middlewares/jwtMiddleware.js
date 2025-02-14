@@ -15,4 +15,4 @@ export function jwtMiddleware(req, res, next) {
     }
   }
   next();
-}
+};

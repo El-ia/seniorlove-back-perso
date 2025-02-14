@@ -1,3 +1,4 @@
+
 import 'dotenv/config';
 import { sequelize } from '../models/client.js';
 import { User, Event, Role, Label, Message } from '../models/associations.js';

@@ -9,7 +9,8 @@ const app = express();
 
 // CORS module: specify who can access the API
 app.use(cors({
-  origin: "http://localhost:5173", // * = allow everyone (not a best practice, but it's fine for local development)
+  origin: "http://localhost:5173", // * = allow everyone (not a best practice, but it's fine for local development),
+  credentials: true
 }));
 
 // Add JWT middleware to add user to req if token exists and is valid
