@@ -1,4 +1,8 @@
-import { Event } from "../models/associations.js";
+
+
+import { Event, Label } from "../models/associations.js";
+
+
 
 export const eventController = {
 
@@ -8,7 +12,11 @@ export const eventController = {
       const events = await Promise.all(cities.map(async (city) => {
         return await Event.findOne({
           where: { city },
+
+
           order: [['created_at', 'DESC']],
+          include: {model:Label, as:'label'}
+
         });
       }));
       res.json(events);

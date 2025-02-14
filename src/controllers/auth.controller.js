@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import passwordValidator from "password-validator";
 import * as argon2 from "argon2";
 import { Role, User } from "../models/associations.js";
+import { setCookie } from "../middlewares/cookieMiddleware.js";
 
 const jwtSecret = process.env.JWT_SECRET; // Retrieve the secret key from .env
 
@@ -115,19 +116,25 @@ export const authController = {
       if (!isPasswordValid) {
         return res.status(401).json({ error: 'Mot de passe incorrect.' });
       }*/
-
+      const options = {
+        maxAge: 1000 * 60 * 15, // expire after 15 minutes
+        httpOnly: true, // Cookie will not be exposed to client side code
+        sameSite: "none", // If client and server origins are different
+        secure: true // use with HTTPS only
+      };
       // Generate JWT
-      //const jwtContent = { userId: user.id }; // Create JWT payload with user ID
-      //const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
-      //const token = jwt.sign(jwtContent, jwtSecret, jwtOptions); // Sign the JWT using the secret key and options
+      const jwtContent = { userId: user.id }; // Create JWT payload with user ID
+      const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
+      const token = jwt.sign(jwtContent, jwtSecret, jwtOptions); // Sign the JWT using the secret key and options
 
+      res.cookie("token", token, options);
 
       // Return the token and user info
       return res.status(200).json({ 
         message: 'Connexion réussie.', 
         logged: true, 
         pseudo: user.firstname,
-        //token 
+        token 
       });
     } catch (error) {
       console.error(error);
