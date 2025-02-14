@@ -10,7 +10,7 @@ export const eventController = {
               where: { city },
               order: [['created_at', 'DESC']]
           });
-      }));
+      }));  
       res.json(events);
     } catch (err) {
         console.log(err)
