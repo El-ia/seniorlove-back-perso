@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index.js",
     "start": "node index.js",
     "db:create": "psql -U seniorlove -d seniorlove -f './data/01.create-tables.sql'",
     "db:seed": "psql -U seniorlove -d seniorlove -f './data/02.seed-tables.sql'",
