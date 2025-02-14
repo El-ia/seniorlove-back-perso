@@ -14,7 +14,7 @@ app.use(cors({
 }));
 
 // Add JWT middleware to add user to req if token exists and is valid
-app.use(jwtMiddleware);
+//app.use(jwtMiddleware);
 
 // Error handling middleware
 // app.use(errorHandler);
@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Allow interpreting data provided in a POST, PATCH, or PUT request as JSON
 
 // Use cookie middleware
-app.use(setCookie);
+//app.use(setCookie);
 
 // Use routes
 app.use(router);
