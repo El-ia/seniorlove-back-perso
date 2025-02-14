@@ -7,8 +7,8 @@ export function setCookie(req, res, next) {
     secure: true // use with HTTPS only
   };
 
-  const token = "abcd.123456.xyz"; // dummy JWT token
-  res.cookie("token", token, options);
+  //const token = "abcd.123456.xyz"; // dummy JWT token
+  //res.cookie("token", token, options);
   next(); // proceed to the next middleware or final route
 }
 
