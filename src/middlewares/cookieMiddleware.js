@@ -8,7 +8,7 @@ export function setCookie(req, res, next) {
   };
 
   //const token = "abcd.123456.xyz"; // dummy JWT token
-  res.cookie("token", token, options);
+  //res.cookie("token", token, options);
   next(); // proceed to the next middleware or final route
 };
 

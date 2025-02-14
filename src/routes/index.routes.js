@@ -1,6 +1,8 @@
 import { Router } from "express";
 import { authController } from "../controllers/auth.controller.js";
 import { eventController } from "../controllers/event.controller.js";
+import { jwtMiddleware } from "../middlewares/jwtMiddleware.js";
+// utliser une fois connecté, sur les routes, le middleware JWT(comme controllerWrapper) 
 
 
 
