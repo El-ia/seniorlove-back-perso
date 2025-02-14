@@ -116,8 +116,10 @@ export const authController = {
       if (!isPasswordValid) {
         return res.status(401).json({ error: 'Mot de passe incorrect.' });
       }*/
+
+      //Cookie
       const options = {
-        maxAge: 1000 * 60 * 15, // expire after 15 minutes
+        maxAge: 1000 * 60 * 60 * 3, // expire after 3 hours
         httpOnly: true, // Cookie will not be exposed to client side code
         sameSite: "none", // If client and server origins are different
         secure: true // use with HTTPS only
