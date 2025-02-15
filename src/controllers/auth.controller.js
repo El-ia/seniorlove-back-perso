@@ -119,7 +119,7 @@ export const authController = {
         maxAge: 1000 * 60 * 15, // expire after 15 minutes
         httpOnly: true, // Cookie will not be exposed to client side code
         sameSite: "none", // If client and server origins are different
-        secure: true // use with HTTPS only
+        //secure: true // use with HTTPS only
       };
       // Generate JWT
       const jwtContent = { userId: user.id }; // Create JWT payload with user ID
