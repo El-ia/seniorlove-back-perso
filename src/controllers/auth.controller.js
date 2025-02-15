@@ -49,12 +49,13 @@ export const authController = {
       }
 
       // Hash the password
-      //const hashedPassword = await argon2.hash(password);
+      const hashedPassword = await argon2.hash(password);
+      // console.log(hashedPassword);
 
       // Create the user
       const newUser = await User.create({
         email,
-        password, //hashedPassword,
+        password: hashedPassword,
         firstname,
         gender,
         age,
@@ -115,8 +116,10 @@ export const authController = {
       if (!isPasswordValid) {
         return res.status(401).json({ error: 'Mot de passe incorrect.' });
       }*/
+
+      //Cookie
       const options = {
-        maxAge: 1000 * 60 * 15, // expire after 15 minutes
+        maxAge: 1000 * 60 * 60 * 3, // expire after 3 hours
         httpOnly: true, // Cookie will not be exposed to client side code
         sameSite: "none", // If client and server origins are different
         //secure: true // use with HTTPS only
