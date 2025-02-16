@@ -1,0 +1,53 @@
+import { User, Event, Label, Message, Role } from "../models/associations.js";
+import { Op } from "sequelize";
+
+export const userController = {
+  getAccountDetails: async (req, res) => {
+    try {
+      const userId = req.params.id;
+      const user = await User.findByPk(userId, {
+        include: [
+          { model: Role, as: 'role' },
+          { model: Message, as: 'sentMessages' },
+          { model: Message, as: 'receivedMessages' }
+        ]
+      });
+
+      if (!user) {
+        return res.status(404).json({ message: 'Utilisateur non trouvé' });
+      }
+
+      // Retrieve past events (only titles)
+      const pastEvents = await Event.findAll({
+        where: {
+          date: { [Op.lt]: new Date() } // Past events. Op.lt: This is an operator from Sequelize which stands for "less than." It is used to filter records where the column value is less than a certain date (used for past events in this case).
+        },
+        limit: 2,
+        order: [['date', 'DESC']],
+        include: [
+          { model: Label, as: 'label' }
+        ],
+        attributes: ['id', 'title']
+      });
+
+      // Retrieve future event (only title)
+      const futureEvent = await Event.findOne({
+        where: {
+          date: { [Op.gt]: new Date() } // Future event. Op.gt: This operator stands for "greater than." It is used to filter records where the column value is greater than a certain date (used for future events in this case).
+        },
+        order: [['date', 'ASC']],
+        include: [
+          { model: Label, as: 'label' }
+        ],
+        attributes: ['id', 'title']
+      });
+
+      user.dataValues.pastEvents = pastEvents;
+      user.dataValues.futureEvent = futureEvent;
+
+      res.status(200).json(user);
+    } catch (error) {
+      res.status(500).json({ message: 'Quelque chose s\'est mal passé', error });
+    }
+  }
+};
