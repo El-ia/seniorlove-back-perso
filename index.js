@@ -3,7 +3,11 @@ import express from "express";
 import { router } from "./src/routes/index.routes.js";
 import cors from "cors"; // Import cors
 import cookieParser from "cookie-parser";
+
 import helmet from "helmet";
+
+import { bodySanitizer } from "./src/middlewares/sanitizeMiddleware.js"; // Import body sanitizer middleware
+
 
 import { jwtMiddleware } from "./src/middlewares/jwtMiddleware.js"; // Import JWT middleware
 
@@ -32,6 +36,9 @@ app.use(express.json()); // Allow interpreting data provided in a POST, PATCH, o
 
 // Use cookie middleware
 //app.use(setCookie);
+
+// Use body sanitizer middleware before routes
+app.use(bodySanitizer);
 
 // Use routes
 app.use(router);

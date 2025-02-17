@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import passwordValidator from "password-validator";
 import * as argon2 from "argon2";
-import { Role, User } from "../models/associations.js";
+import { Role, User, Label } from "../models/associations.js";
 import { setCookie } from "../middlewares/cookieMiddleware.js";
 
 const jwtSecret = process.env.JWT_SECRET; // Retrieve the secret key from .env
@@ -11,10 +11,10 @@ export const authController = {
   // Handle user sign-up
   async signUp(req, res) {
     try {
-      const { email, password, firstname, gender, age, height, marital, pet, city } = req.body;
+      const { email, password, firstname, gender, age, height, marital, pet, city, gender_match, description, smoker, music, picture, zodiac, labels } = req.body;
 
       // Validate required fields
-      if (!email || !password || !firstname || !gender || !age || !height || !marital || !pet || !city) {
+      if (!email || !password || !firstname || !gender || !age || !height || !marital || !pet || !city || !gender_match) {
         return res.status(400).json({ error: 'Tous les champs obligatoires doivent être remplis.' });
       }
 
@@ -63,7 +63,27 @@ export const authController = {
         marital,
         pet,
         city,
+        gender_match,
+        description,
+        smoker,
+        music,
+        picture,
+        zodiac
       });
+
+      // Check if labels are provided and if the labels array is not empty
+      if (labels && labels.length > 0) {
+        // Find all labels in the database that match the provided label names
+        const userLabels = await Label.findAll({
+          where: {
+            name: labels // Filter labels by the names provided in the request
+          }
+        });
+
+        // Associate the found labels with the newly created user
+        // This uses the `setLabels` method provided by Sequelize for many-to-many relationships
+        await newUser.setLabels(userLabels);
+      }
 
       // Save user to database
       await newUser.save();
