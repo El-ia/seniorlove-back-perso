@@ -21,5 +21,8 @@ router.route("/api/signup")
 router.route("/api/signin")
   .post(authController.signIn);
 
-router.route("/api/filterevent")
+router.route("/api/filter-event")
   .get(eventController.lastEvent);
+
+router.route("/api/verify-token")
+  .get(jwtMiddleware(authController.verifyToken));

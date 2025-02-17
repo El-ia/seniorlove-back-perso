@@ -4,15 +4,18 @@ const jwtSecret = process.env.JWT_SECRET; // Retrieve the secret key from .env
 
 // Middleware to check if token exists and is valid
 export const jwtMiddleware = (controller) => async (req, res, next) => {
-  const authorization = req.headers.authorization;
-  if (authorization) {
-    const token = authorization.split(' ')[1];
+  const token = req.cookies.token; // Utiliser req.cookies.token pour récupérer le token
+  if (token) {
     try {
       const jwtContent = jwt.verify(token, jwtSecret);
       req.user = jwtContent;
+      await controller(req,res,next);
     } catch (err) {
       console.log('Invalid token', err);
+      return res.status(401).json({ error: 'Token invalide.' });
     }
+  } else {
+    return res.status(401).json({ error: 'Token non fourni.' });
   }
   next();
 };
