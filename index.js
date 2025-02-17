@@ -3,7 +3,7 @@ import express from "express";
 import { router } from "./src/routes/index.routes.js";
 import cors from "cors"; // Import cors
 import cookieParser from "cookie-parser";
-import { bodySanitizer } from "./src/middlewares/bodySanitizer.js"; // Import body sanitizer middleware
+import { bodySanitizer } from "./src/middlewares/sanitizeMiddleware.js"; // Import body sanitizer middleware
 
 import { jwtMiddleware } from "./src/middlewares/jwtMiddleware.js"; // Import JWT middleware
 

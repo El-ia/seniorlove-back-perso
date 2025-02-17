@@ -1,4 +1,4 @@
-# Route for user signin
+# Route for user sign in
 POST http://localhost:3000/api/signin
 Content-Type: application/json
 
@@ -9,11 +9,34 @@ Content-Type: application/json
 
 ###
 # Route to filter events
-GET http://localhost:3000/api/filterevent
+GET http://localhost:3000/api/filter-event
 
 
 ###
 # Route to get account details
 GET http://localhost:3000/api/myaccount/3
 
+### 
+# Route to sign up
+POST http://localhost:3000/api/signup
+Content-Type: application/json
 
+{
+    "email": "newuser123@example.com", 
+    "password": "NewPassword2023!",
+    "repeat_password": "NewPassword2023!",  
+    "firstname": "Alice", 
+    "gender": "Femme", 
+    "gender_match": "Homme", 
+    "age": "61", 
+    "height": "165",   
+    "marital": "Célibataire", 
+    "pet": "false",   
+    "city": "Lyon",
+    "description": "<script></script>j'aime les chats",
+    "smoker": "false",
+    "music": "variété française",
+    "picture":"",
+    "zodiac":"poisson",
+    "labels": ["Nature", "Culturel"]
+}
