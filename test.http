@@ -1,3 +1,4 @@
+# Route for user signin
 POST http://localhost:3000/api/signin
 Content-Type: application/json
 
@@ -7,4 +8,10 @@ Content-Type: application/json
 }
 
 ###
+# Route to filter events
 GET http://localhost:3000/api/filterevent
+
+
+###
+# Route to get account details
+GET http://localhost:3000/api/myaccount/3
