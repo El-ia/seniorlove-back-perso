@@ -24,10 +24,19 @@ router.route("/api/signup")
 router.route("/api/signin")
   .post(authController.signIn);
 
+router.route("/api/verify-token")
+  .get(jwtMiddleware(authController.verifyToken));
+
+
 // Route to filter events
-router.route("/api/filterevent")
+router.route("/api/filter-event")
   .get(eventController.lastEvent);
 
 // Route to get account details
 router.route("/api/myaccount/:id(\\d+)")
   .get(userController.getAccountDetails);
+
+
+
+
+

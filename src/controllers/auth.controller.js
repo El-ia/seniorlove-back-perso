@@ -90,6 +90,7 @@ export const authController = {
 
   // Handle user sign-in
   async signIn(req, res) {
+    console.log('requete http',req.body)
     try {
       const { email, password } = req.body;
 
@@ -121,7 +122,7 @@ export const authController = {
       const options = {
         maxAge: 1000 * 60 * 60 * 3, // expire after 3 hours
         httpOnly: true, // Cookie will not be exposed to client side code
-        sameSite: "none", // If client and server origins are different
+        //sameSite: "none", // If client and server origins are different
         //secure: true // use with HTTPS only
       };
       // Generate JWT
@@ -141,6 +142,14 @@ export const authController = {
     } catch (error) {
       console.error(error);
       return res.status(500).json({ error: 'Une erreur est survenue lors de la connexion.' });
+    }
+  },
+
+  async verifyToken(req, res){
+    if (req.user) {
+      res.status(200).json({ userId: req.user.userId, firstname: req.user.firstname });
+    } else {
+      res.status(401).json({ error: 'Token invalide.' });
     }
   },
 };
