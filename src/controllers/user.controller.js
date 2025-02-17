@@ -49,5 +49,39 @@ export const userController = {
     } catch (error) {
       res.status(500).json({ message: 'Quelque chose s\'est mal passé', error });
     }
+  },
+  updateAccountDetails: async (req, res) => {
+    try {
+      const userId = req.params.id;
+      const updatedData = req.body;
+
+      const user = await User.findByPk(userId, {
+        include: [
+          { model: Role, as: 'role' },
+          { model: Message, as: 'sentMessages' },
+          { model: Message, as: 'receivedMessages' }
+        ]
+      });
+
+      if (!user) {
+        return res.status(404).json({ message: 'Utilisateur non trouvé' });
+      }
+
+      // Update user details
+      await user.update(updatedData);
+
+      // Refetch the updated user with associations
+      const updatedUser = await User.findByPk(userId, {
+        include: [
+          { model: Role, as: 'role' },
+          { model: Message, as: 'sentMessages' },
+          { model: Message, as: 'receivedMessages' }
+        ]
+      });
+
+      res.status(200).json({ message: 'Les informations de l\'utilisateur ont été mises à jour avec succès', user: updatedUser });
+    } catch (error) {
+      res.status(500).json({ message: 'Quelque chose s\'est mal passé', error });
+    }
   }
 };

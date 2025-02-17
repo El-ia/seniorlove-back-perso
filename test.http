@@ -15,3 +15,17 @@ GET http://localhost:3000/api/filterevent
 ###
 # Route to get account details
 GET http://localhost:3000/api/myaccount/3
+
+###
+# Route to update account details
+PATCH  http://localhost:3000/api/myaccount/3
+Content-Type: application/json
+
+{
+    "firstname": "Jean-Claude",
+    "picture": "",
+    "city":"PARIS",
+    "smocker": "true",
+    "pet": "false",
+    "music": "Jazz"
+}

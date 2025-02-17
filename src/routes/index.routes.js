@@ -32,9 +32,15 @@ router.route("/api/verify-token")
 router.route("/api/filter-event")
   .get(eventController.lastEvent);
 
-// Route to get account details
+
 router.route("/api/myaccount/:id(\\d+)")
-  .get(userController.getAccountDetails);
+  .get((userController.getAccountDetails)) // Route to get account details
+  .patch((userController.updateAccountDetails)); // Define the update account details
+
+
+
+
+
 
 
 
