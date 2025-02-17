@@ -1,5 +1,7 @@
 import { User, Event, Label, Message, Role } from "../models/associations.js";
 import { Op } from "sequelize";
+import { userUpdateSchema } from "../schema/user.schema.js";
+
 
 export const userController = {
   getAccountDetails: async (req, res) => {
@@ -50,10 +52,15 @@ export const userController = {
       res.status(500).json({ message: 'Quelque chose s\'est mal passé', error });
     }
   },
+
+  // Method to update account details
   updateAccountDetails: async (req, res) => {
     try {
       const userId = req.params.id;
       const updatedData = req.body;
+
+      // Validate data with Joi
+      await userUpdateSchema.validateAsync(updatedData);
 
       const user = await User.findByPk(userId, {
         include: [
@@ -85,6 +92,7 @@ export const userController = {
     }
   },
 
+  // Method to delete account
   deleteAccount: async (req, res) => {
     try {
       const userId = req.params.id;

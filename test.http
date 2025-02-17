@@ -23,10 +23,9 @@ Content-Type: application/json
 
 {
     "firstname": "Jean-Claude",
-    "picture": "",
-    "description": "Amateur de vin blanc.",
-    "city":"LYON",
-    "smocker": "true",
+    "city":"PARIS",
+    "description": "Enthousiaste de photographie.",
+    "smoker": "true",
     "pet": "true",
     "music": "Jazz"
 }
