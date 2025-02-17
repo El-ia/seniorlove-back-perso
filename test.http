@@ -26,6 +26,6 @@ Content-Type: application/json
     "picture": "",
     "city":"PARIS",
     "smocker": "true",
-    "pet": "false",
+    "pet": "true",
     "music": "Jazz"
 }
