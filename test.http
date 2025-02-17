@@ -9,7 +9,7 @@ Content-Type: application/json
 
 ###
 # Route to filter events
-GET http://localhost:3000/api/filterevent
+GET http://localhost:3000/api/filter-event
 
 
 ###
@@ -24,8 +24,13 @@ Content-Type: application/json
 {
     "firstname": "Jean-Claude",
     "picture": "",
-    "city":"PARIS",
+    "description": "Amateur de vin blanc.",
+    "city":"LYON",
     "smocker": "true",
     "pet": "true",
     "music": "Jazz"
 }
+
+###
+# Route to delete account details
+DELETE  http://localhost:3000/api/myaccount/12
