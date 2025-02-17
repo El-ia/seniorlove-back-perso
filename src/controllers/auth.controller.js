@@ -146,7 +146,6 @@ export const authController = {
   },
 
   async verifyToken(req, res){
-    console.log("requete dans le contrôleur", req.user);
     if (req.user) {
       res.status(200).json({ userId: req.user.userId, firstname: req.user.firstname });
     } else {
