@@ -34,7 +34,8 @@ INSERT INTO "label" ("id", "name") VALUES
 (2, 'Culturel'),
 (3, 'Artistique'),
 (4, 'Jeux de société'),
-(5, 'soirée à thème');
+(5, 'Soirée à thème'),
+(6, 'Sports/bien-être');
 
 
 INSERT INTO "user_label" ("user_id", "label_id") 
@@ -46,18 +47,18 @@ VALUES
 
 INSERT INTO "event" ("id", "slug", "title", "description", "date", "time", "city", "street", "street_number", "zip_code", "label_id", "picture") 
 VALUES
-(1, 'balade-nature-en-foret', 'Balade Nature en Forêt', 'Une promenade guidée dans la forêt de Fontainebleau pour découvrir la faune et la flore locales.', '2025-05-15', '10:00', 'Paris', 'Rue des Écoles', 34, 75005, 1, 'image1.jpg'),
-(2, 'soiree-theatre-classique', 'Soirée Théâtre Classique', 'Une soirée de théâtre avec une pièce classique de Molière.', '2025-06-22', '19:30', 'Paris', 'Rue du Faubourg Saint-Martin', 7, 75010, 2, 'image2.jpg'),
-(3, 'atelier-peinture-acrylique', 'Atelier de Peinture Acrylique', 'Un atelier pour découvrir et pratiquer la peinture acrylique avec un artiste local.', '2025-07-30', '14:00', 'Paris', 'Avenue de l''Opéra', 15, 75001, 3, 'image3.jpg'),
-(4, 'randonnee-parc-tete-d-or', 'Randonnée au Parc de la Tête d''Or', 'Une randonnée matinale dans le parc pour admirer la nature et les paysages.', '2025-05-18', '08:30', 'Lyon', 'Boulevard des Belges', 1, 69006, 1, 'image4.jpg'),
-(5, 'concert-musique-classique', 'Concert de Musique Classique', 'Un concert avec l''orchestre philharmonique de Lyon, interprétant des œuvres de Beethoven.', '2025-06-05', '20:00', 'Lyon', 'Rue de la République', 4, 69002, 2, 'image5.jpg'),
-(6, 'soiree-jeux-de-societe', 'Soirée Jeux de Société', 'Une soirée conviviale pour jouer à des jeux de société variés.', '2025-07-12', '18:00', 'Lyon', 'Rue des Marronniers', 25, 69002, 3, 'image6.jpg'),
-(7, 'balade-nature-jardin-des-plantes', 'Balade Nature au Jardin des Plantes', 'Une promenade guidée pour découvrir les plantes et arbres du jardin botanique.', '2025-05-10', '09:00', 'Toulouse', 'Rue de la Pomme', 31, 31000, 1, 'image7.jpg'),
-(8, 'exposition-art-contemporain', 'Exposition d''Art Contemporain', 'Une exposition présentant les œuvres d''artistes contemporains locaux.', '2025-06-17', '15:00', 'Toulouse', 'Rue du Taur', 20, 31000, 3, 'image8.jpg'),
-(9, 'soiree-cinema-plein-air', 'Soirée Cinéma en Plein Air', 'Une soirée cinéma en plein air avec projection d''un film classique.', '2025-07-25', '21:00', 'Toulouse', 'Rue Gambetta', 45, 31000, 4, 'image9.jpg'),
-(10, 'randonnee-parc-national-calanques', 'Randonnée au Parc National des Calanques', 'Une randonnée pour découvrir les magnifiques paysages du parc national.', '2025-05-20', '07:00', 'Marseille', 'Rue du Prado', 12, 13008, 1, 'image10.jpg'),
-(11, 'atelier-sculpture-bois', 'Atelier de Sculpture sur Bois', 'Un atelier pratique pour apprendre les techniques de la sculpture sur bois.', '2025-06-03', '10:00', 'Marseille', 'Avenue du Prado', 18, 13006, 3, 'image11.jpg'),
-(12, 'soiree-degustation-vins', 'Soirée Dégustation de Vins', 'Une soirée pour déguster des vins régionaux avec un sommelier expert.', '2025-07-28', '19:00', 'Marseille', 'Rue Sainte', 5, 13001, 2, 'image12.jpg');
+(1, 'balade-nature-en-foret', 'Balade Nature en Forêt', 'Une promenade guidée dans la forêt de Fontainebleau pour découvrir la faune et la flore locales.', '2025-05-15', '10:00', 'PARIS', 'Rue des Écoles', 34, 75005, 1, 'image1.jpg'),
+(2, 'soiree-theatre-classique', 'Soirée Théâtre Classique', 'Une soirée de théâtre avec une pièce classique de Molière.', '2025-06-22', '19:30', 'PARIS', 'Rue du Faubourg Saint-Martin', 7, 75010, 2, 'image2.jpg'),
+(3, 'atelier-peinture-acrylique', 'Atelier de Peinture Acrylique', 'Un atelier pour découvrir et pratiquer la peinture acrylique avec un artiste local.', '2025-07-30', '14:00', 'PARIS', 'Avenue de l''Opéra', 15, 75001, 3, 'image3.jpg'),
+(4, 'randonnee-parc-tete-d-or', 'Randonnée au Parc de la Tête d''Or', 'Une randonnée matinale dans le parc pour admirer la nature et les paysages.', '2025-05-18', '08:30', 'LYON', 'Boulevard des Belges', 1, 69006, 1, 'image4.jpg'),
+(5, 'concert-musique-classique', 'Concert de Musique Classique', 'Un concert avec l''orchestre philharmonique de Lyon, interprétant des œuvres de Beethoven.', '2025-06-05', '20:00', 'LYON', 'Rue de la République', 4, 69002, 2, 'image5.jpg'),
+(6, 'soiree-jeux-de-societe', 'Soirée Jeux de Société', 'Une soirée conviviale pour jouer à des jeux de société variés.', '2025-07-12', '18:00', 'LYON', 'Rue des Marronniers', 25, 69002, 3, 'image6.jpg'),
+(7, 'balade-nature-jardin-des-plantes', 'Balade Nature au Jardin des Plantes', 'Une promenade guidée pour découvrir les plantes et arbres du jardin botanique.', '2025-05-10', '09:00', 'TOULOUSE', 'Rue de la Pomme', 31, 31000, 1, 'image7.jpg'),
+(8, 'exposition-art-contemporain', 'Exposition d''Art Contemporain', 'Une exposition présentant les œuvres d''artistes contemporains locaux.', '2025-06-17', '15:00', 'TOULOUSE', 'Rue du Taur', 20, 31000, 3, 'image8.jpg'),
+(9, 'soiree-cinema-plein-air', 'Soirée Cinéma en Plein Air', 'Une soirée cinéma en plein air avec projection d''un film classique.', '2025-07-25', '21:00', 'TOULOUSE', 'Rue Gambetta', 45, 31000, 4, 'image9.jpg'),
+(10, 'randonnee-parc-national-calanques', 'Randonnée au Parc National des Calanques', 'Une randonnée pour découvrir les magnifiques paysages du parc national.', '2025-05-20', '07:00', 'MARSEILLE', 'Rue du Prado', 12, 13008, 1, 'image10.jpg'),
+(11, 'atelier-sculpture-bois', 'Atelier de Sculpture sur Bois', 'Un atelier pratique pour apprendre les techniques de la sculpture sur bois.', '2025-06-03', '10:00', 'MARSEILLE', 'Avenue du Prado', 18, 13006, 3, 'image11.jpg'),
+(12, 'soiree-degustation-vins', 'Soirée Dégustation de Vins', 'Une soirée pour déguster des vins régionaux avec un sommelier expert.', '2025-07-28', '19:00', 'MARSEILLE', 'Rue Sainte', 5, 13001, 2, 'image12.jpg');
 
 COMMIT;
 
