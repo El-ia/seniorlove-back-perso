@@ -8,7 +8,7 @@ export const eventController = {
 
   async lastEvent(req,res){
     try {
-      const cities = ['Paris', 'Lyon', 'Marseille', 'Toulouse'];
+      const cities = ['PARIS', 'LYON', 'MARSEILLE', 'TOULOUSE'];
       const events = await Promise.all(cities.map(async (city) => {
         return await Event.findOne({
           where: { city },
