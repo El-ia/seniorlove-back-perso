@@ -92,7 +92,6 @@ export const userController = {
     }
   },
 
-  // Method to delete account
   deleteAccount: async (req, res) => {
     try {
       const userId = req.params.id;
