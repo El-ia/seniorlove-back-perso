@@ -23,9 +23,9 @@ PATCH  http://localhost:3000/api/myaccount/3
 Content-Type: application/json
 
 {
-    "firstname": "Jean-Claude",
+    "firstname": "Claude",
     "city":"LYON",
-    "description": "Amateur de vins.",
+    "description": "Amateur de thés.",
     "smoker": "true",
     "pet": "true",
     "music": "Jazz"
@@ -33,7 +33,7 @@ Content-Type: application/json
 
 ###
 # Route to delete account details
-DELETE  http://localhost:3000/api/myaccount/12
+DELETE  http://localhost:3000/api/myaccount/11
 
 ### 
 # Route to sign up
