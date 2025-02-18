@@ -15,6 +15,9 @@ export const router = new Router();
 router.route("/api/homepage-events")
   .get(eventController.connectedEvent);
 
+router.route("/api/homepage-profiles")
+  .get(userController.connectedProfile);
+
 
 // Route for user signup
 router.route("/api/signup")

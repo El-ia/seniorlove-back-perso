@@ -64,3 +64,8 @@ Content-Type: application/json
 # Route to get events from connected page
 GET http://localhost:3000/api/homepage-events
 
+
+###
+# Route to get events from connected page
+GET http://localhost:3000/api/homepage-profiles
+

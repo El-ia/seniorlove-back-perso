@@ -26,10 +26,9 @@ export const eventController = {
     }
   },
 
-  async connectedEvent(req,res){
-
+  async connectedEvent(req, res) {
     try {
-
+      // Get the 4 upcoming events, sorted by date in ascending order (earliest first)
       const events = await Event.findAll({
         limit: 4,
         order: [['date', 'ASC']],
@@ -38,17 +37,8 @@ export const eventController = {
       res.status(200).json(events);
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: 'Erreur lors de la récupération des événements' });
+      res.status(500).json({ message: 'Error retrieving events' });
     }
   }
-
-
-
-
-
-
-
-
-
 
 };

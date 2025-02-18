@@ -108,5 +108,21 @@ export const userController = {
     } catch (error) {
       res.status(500).json({ message: 'Quelque chose s\'est mal passé', error });
     }
-  }
+  },
+
+  connectedProfile: async (req, res) => {
+    try {
+      // Get the 6 most recently created users, sorted by creation date (newest first)
+      const profiles = await User.findAll({
+        limit: 6,
+        order: [['created_at', 'DESC']],
+      });
+
+      res.status(200).json(profiles);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error retrieving profiles' });
+    }
+  },
+
 };
