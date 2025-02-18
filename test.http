@@ -52,7 +52,7 @@ Content-Type: application/json
     "marital": "Célibataire", 
     "pet": "false",   
     "city": "Lyon",
-    "description": "<script></script>j'aime les chats",
+    "description": "<script>hello</script> j'aime les chats",
     "smoker": "false",
     "music": "variété française",
     "picture":"",
