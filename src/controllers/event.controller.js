@@ -1,6 +1,6 @@
 
 
-import { Event, Label } from "../models/associations.js";
+import { Event, Label, User } from "../models/associations.js";
 
 
 
@@ -22,7 +22,33 @@ export const eventController = {
       res.json(events);
     } catch (err) {
       console.log(err);
-      return res.status(500).json({ err: 'Une erreur est survenue lors de la création de l’utilisateur.' });
+      return res.status(500).json({ err: 'Erreur lors de la récupération des événements' });
+    }
+  },
+
+  async connectedEvent(req,res){
+
+    try {
+
+      const events = await Event.findAll({
+        limit: 4,
+        order: [['date', 'ASC']],
+      });
+
+      res.status(200).json(events);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Erreur lors de la récupération des événements' });
     }
   }
+
+
+
+
+
+
+
+
+
+
 };

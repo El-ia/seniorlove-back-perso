@@ -59,3 +59,8 @@ Content-Type: application/json
     "zodiac":"poisson",
     "labels": ["Nature", "Culturel"]
 }
+
+###
+# Route to get events from connected page
+GET http://localhost:3000/api/homepage-events
+

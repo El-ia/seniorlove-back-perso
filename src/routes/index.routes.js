@@ -10,10 +10,10 @@ import { userController } from "../controllers/user.controller.js";
 
 export const router = new Router();
 
-//home page
+// Routes for homepage conected
 
-
-
+router.route("/api/homepage-events")
+  .get(eventController.connectedEvent);
 
 
 // Route for user signup
