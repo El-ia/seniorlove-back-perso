@@ -129,14 +129,14 @@ export const authController = {
       });
 
       if (!user) {
-        return res.status(404).json({ error: 'Utilisateur non trouvé.' });
+        return res.status(404).json({ error: 'Identifiants incorrects..' }); // 
       }
 
       // Verify password
-      /*const isPasswordValid = await argon2.verify(user.password, password);
+      const isPasswordValid = await argon2.verify(user.password, password);
       if (!isPasswordValid) {
-        return res.status(401).json({ error: 'Mot de passe incorrect.' });
-      }*/
+        return res.status(401).json({ error: 'Identifiants incorrects..' });
+      }
 
       //Cookie
       const options = {
@@ -145,6 +145,7 @@ export const authController = {
         //sameSite: "none", // If client and server origins are different
         //secure: true // use with HTTPS only
       };
+
       // Generate JWT
       const jwtContent = { userId: user.id }; // Create JWT payload with user ID
       const jwtOptions = { algorithm: 'HS256', expiresIn: '3h' }; // Define JWT options, setting the algorithm and expiration time
