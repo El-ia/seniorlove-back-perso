@@ -1,23 +1,24 @@
 import sanitizeHtml from 'sanitize-html';
 
-// Middleware function to sanitize the request body
-export const bodySanitizer = (req, res, next) => {
-  // Check if the request body exists
+export function bodySanitizer(req, res, next) {
+  // Define sanitize-html options to allow arrays while stripping all HTML tags and attributes
+  const options = {
+    allowedTags: [],
+    allowedAttributes: {},
+    allowArray: true,
+  };
+ 
+  // Check if request contains a body
   if (req.body) {
-    // Iterate over each key in the request body
-    for (let key in req.body) {
-      
-      // Skip sanitization if the value is an array (sanitalization not necessary here)
-      if (Array.isArray(req.body[key])) {
-        continue;
-      }
-
-      // Sanitize if the value is a string
-      // This removes any potentially dangerous HTML tags or attributes
+    // Loop through each property in request body
+    for (const key in req.body) {
+      // Only sanitize string values to avoid type errors
       if (typeof req.body[key] === 'string') {
-        req.body[key] = sanitizeHtml(req.body[key]);
+        // Clean the value by removing any malicious HTML
+        req.body[key] = sanitizeHtml(req.body[key], options);
       }
     }
   }
+  // Continue to next middleware
   next();
-};
+}
