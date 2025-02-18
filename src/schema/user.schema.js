@@ -11,8 +11,8 @@ export const userCreateSchema = Joi.object({
   password:Joi.string().alphanum().regex(
     /(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[$@$!#.])[A-Za-zd$@$!%*?&.]{8,20}/
   ).required(),
-  repeat_password: Joi.ref('password').required(),
-  description:Joi.string().alphanum().min(1),
+  confirmPassword: Joi.string().valid(Joi.ref('password')).required(),
+  description:Joi.string().min(1),
   age:Joi.number().integer().required().min(59),
   height:Joi.number().integer().required().min(1),
   smoker:Joi.boolean(),
@@ -24,3 +24,17 @@ export const userCreateSchema = Joi.object({
   zodiac:Joi.string().min(1),
   gender_match:Joi.string().required().min(1)
 }).required();
+
+// Validation schema for updating user information
+export const userUpdateSchema = Joi.object({
+  firstname: Joi.string(),
+  email: Joi.string().email({
+    minDomainSegments: 2, tlds: { allow: ['com', 'net'] }
+  }),
+  description: Joi.string(),
+  smoker: Joi.boolean(),
+  pet: Joi.boolean(),
+  city: Joi.string(),
+  music: Joi.string(),
+  picture: Joi.string(),
+}).required().min(1);

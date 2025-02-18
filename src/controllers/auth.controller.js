@@ -110,7 +110,7 @@ export const authController = {
 
   // Handle user sign-in
   async signIn(req, res) {
-    console.log('requete http',req.body)
+    console.log('requete http',req.body);
     try {
       const { email, password } = req.body;
 

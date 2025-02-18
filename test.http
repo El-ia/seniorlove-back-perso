@@ -16,6 +16,25 @@ GET http://localhost:3000/api/filter-event
 # Route to get account details
 GET http://localhost:3000/api/myaccount/3
 
+
+###
+# Route to update account details
+PATCH  http://localhost:3000/api/myaccount/3
+Content-Type: application/json
+
+{
+    "firstname": "Jean-Claude",
+    "city":"LYON",
+    "description": "Amateur de vins.",
+    "smoker": "true",
+    "pet": "true",
+    "music": "Jazz"
+}
+
+###
+# Route to delete account details
+DELETE  http://localhost:3000/api/myaccount/12
+
 ### 
 # Route to sign up
 POST http://localhost:3000/api/signup
