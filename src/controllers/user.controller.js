@@ -18,7 +18,6 @@ export const userController = {
       });
 
       if (!user) {
-        console.log("User not found");
         return res.status(404).json({ message: 'Utilisateur non trouvé' });
       }
 
@@ -60,10 +59,6 @@ export const userController = {
   updateAccountDetails: async (req, res) => {
     try {
       const userEmail = req.body.email; // Retrieve user email from request body
-      if (!userEmail) {
-        return res.status(400).json({ message: 'Email est requis' });
-      }
-
       const updatedData = req.body;
 
       // Validate data with Joi
@@ -85,9 +80,12 @@ export const userController = {
       // Update user details
       await user.update(updatedData);
 
+      // Ensure the email is updated in the database by saving the user instance
+      await user.save();
+
       // Refetch the updated user with associations
       const updatedUser = await User.findOne({
-        where: { email: userEmail },
+        where: { email: updatedData.email || userEmail },
         include: [
           { model: Role, as: 'role' },
           { model: Message, as: 'sentMessages' },
