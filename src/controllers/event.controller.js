@@ -1,6 +1,7 @@
 
 
-import { Event, Label } from "../models/associations.js";
+import { Event, Label, User } from "../models/associations.js";
+import { Op } from 'sequelize';
 
 
 
@@ -22,7 +23,43 @@ export const eventController = {
       res.json(events);
     } catch (err) {
       console.log(err);
-      return res.status(500).json({ err: 'Une erreur est survenue lors de la création de l’utilisateur.' });
+      return res.status(500).json({ err: 'Erreur lors de la récupération des événements' });
+    }
+  },
+
+  async connectedEvent(req, res) {
+    try {
+      const userId = req.user.userId;
+
+      // Get user data
+      const user = await User.findOne({
+        where: { id: userId }
+      });
+
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+
+      // Find relevant events
+      const events = await Event.findAll({
+        where: {
+          city: user.city, // Events in user's city
+          date: {
+            [Op.gte]: new Date() // Only future events
+          }
+        },
+        limit: 4,
+        order: [['date', 'ASC']], // Soonest events first
+        include: [{
+          model: Label,
+          as: 'label' // Include event category information
+        }]
+      });
+
+      res.status(200).json(events);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error retrieving events' });
     }
   }
 };
