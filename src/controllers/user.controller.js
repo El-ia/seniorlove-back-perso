@@ -108,5 +108,46 @@ export const userController = {
     } catch (error) {
       res.status(500).json({ message: 'Quelque chose s\'est mal passé', error });
     }
+  },
+
+  connectedProfile: async (req, res) => {
+    try {
+      const userId = req.user.userId;
+      
+      // Get current user data
+      const currentUser = await User.findOne({
+        where: { id: userId }
+      });
+  
+      if (!currentUser) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+
+      // Find matching profiles
+      const profiles = await User.findAll({
+        where: {
+          id: { [Op.ne]: userId }, // Exclude current user
+          city: currentUser.city, // Same city matching
+          [Op.or]: [
+            {
+              [Op.and]: [
+                { gender: currentUser.gender_match }, // Match user's preferred gender
+                { gender_match: currentUser.gender }  // Match profiles seeking user's gender
+              ]
+            },
+          ]
+        },
+        limit: 6,
+        order: [['created_at', 'DESC']], // Most recent first
+        attributes: { 
+          exclude: ['password', 'email'] // Security: exclude sensitive data
+        }
+      });
+  
+      res.status(200).json(profiles);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error retrieving profiles' });
+    }
   }
 };

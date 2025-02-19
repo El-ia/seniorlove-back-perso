@@ -3,8 +3,8 @@ POST http://localhost:3000/api/signin
 Content-Type: application/json
 
 {
-    "email":"jean60@example.com",
-    "password":"Retraité2023!"
+    "email":"claude65@example.com",
+    "password":"Cl@ude1958!"
 }
 
 ###
@@ -23,9 +23,9 @@ PATCH  http://localhost:3000/api/myaccount/3
 Content-Type: application/json
 
 {
-    "firstname": "Claude",
-    "city":"LYON",
-    "description": "Amateur de thés.",
+    "firstname": "Jean-Claude",
+    "city":"TOULOUSE",
+    "description": "Amateur de vins.",
     "smoker": "true",
     "pet": "true",
     "music": "Jazz"
@@ -51,11 +51,31 @@ Content-Type: application/json
     "height": "165",   
     "marital": "Célibataire", 
     "pet": "false",   
-    "city": "Lyon",
-    "description": "<script></script>j'aime les chats",
+    "city": "TOULOUSE",
+    "description": "<script>hello</script> j'aime les chats",
     "smoker": "false",
     "music": "variété française",
     "picture":"",
     "zodiac":"poisson",
     "labels": ["Nature", "Culturel"]
 }
+
+###
+# Route to get events from connected page
+GET http://localhost:3000/api/homepage-events
+
+
+###
+# Route to get events from connected page
+GET http://localhost:3000/api/homepage-profiles
+
+
+### 
+# Route to get up to 4 events from a user connected
+GET http://localhost:3000/api/homepage-events
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk1OTY5MiwiZXhwIjoxNzM5OTcwNDkyfQ.1ClRI7dDTKzpv5ysB1PKurjYnd9crHDBRwlln7Nc2Ao
+
+### 
+# Route to get up to 6 profiles from a user connected
+GET http://localhost:3000/api/homepage-profiles
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk1OTY5MiwiZXhwIjoxNzM5OTcwNDkyfQ.1ClRI7dDTKzpv5ysB1PKurjYnd9crHDBRwlln7Nc2Ao
