@@ -15,19 +15,15 @@ GET http://localhost:3000/api/filter-event
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
-Content-Type: application/json
-
-{
-    "email": "claude65@example.com"
-}
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
 
 ###
 # Route to update account details
 PATCH  http://localhost:3000/api/my-account
 Content-Type: application/json
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
 
 {
-    "email": "claude65@example.com",
     "firstname": "jean-Claude",
     "city":"LYON",
     "description": "Amateur de beaux arts.",
@@ -39,11 +35,8 @@ Content-Type: application/json
 ###
 # Route to delete account details
 DELETE  http://localhost:3000/api/my-account
-Content-Type: application/json
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
 
-{
-    "email": "daniel64@example.com"
-}
 
 ### 
 # Route to sign up
@@ -73,9 +66,9 @@ Content-Type: application/json
 ### 
 # Route to get up to 4 events from a user connected
 GET http://localhost:3000/api/homepage-events
-Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk1OTY5MiwiZXhwIjoxNzM5OTcwNDkyfQ.1ClRI7dDTKzpv5ysB1PKurjYnd9crHDBRwlln7Nc2Ao
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
 
 ### 
 # Route to get up to 6 profiles from a user connected
 GET http://localhost:3000/api/homepage-profiles
-Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk1OTY5MiwiZXhwIjoxNzM5OTcwNDkyfQ.1ClRI7dDTKzpv5ysB1PKurjYnd9crHDBRwlln7Nc2Ao
+Cookie: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
