@@ -14,18 +14,23 @@ GET http://localhost:3000/api/filter-event
 
 ###
 # Route to get account details
-GET http://localhost:3000/api/myaccount/3
-
-
-###
-# Route to update account details
-PATCH  http://localhost:3000/api/myaccount/3
+GET http://localhost:3000/api/my-account
 Content-Type: application/json
 
 {
+    "email": "claude65@example.com"
+}
+
+###
+# Route to update account details
+PATCH  http://localhost:3000/api/my-account
+Content-Type: application/json
+
+{
+    "email": "claude65@example.fr",
     "firstname": "Claude",
     "city":"LYON",
-    "description": "Amateur de thés.",
+    "description": "Amateur de beaux arts.",
     "smoker": "true",
     "pet": "true",
     "music": "Jazz"
@@ -33,7 +38,7 @@ Content-Type: application/json
 
 ###
 # Route to delete account details
-DELETE  http://localhost:3000/api/myaccount/11
+DELETE  http://localhost:3000/api/my-account
 
 ### 
 # Route to sign up

@@ -33,7 +33,7 @@ router.route("/api/filter-event")
   .get(eventController.lastEvent);
 
   
-router.route("/api/myaccount/:id(\\d+)")
+router.route("/api/my-account")
   .get((userController.getAccountDetails)) // Route to get account details
   .patch((userController.updateAccountDetails)) // Define the update account details
   .delete(jwtMiddleware(userController.deleteAccount)); // Define the delete account route
