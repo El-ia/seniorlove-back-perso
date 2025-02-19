@@ -27,22 +27,6 @@ export const eventController = {
     }
   },
 
-  // async connectedEvent(req, res) {
-  //   try {
-  //     // Get the 4 upcoming events, sorted by date in ascending order (earliest first)
-  //     const events = await Event.findAll({
-  //       limit: 4,
-  //       order: [['date', 'ASC']],
-  //     });
-
-  //     res.status(200).json(events);
-  //   } catch (error) {
-  //     console.error(error);
-  //     res.status(500).json({ message: 'Error retrieving events' });
-  //   }
-  // }
-
-
   async connectedEvent(req, res) {
     try {
       const userId = req.user.userId;
@@ -77,5 +61,5 @@ export const eventController = {
       console.error(error);
       res.status(500).json({ message: 'Error retrieving events' });
     }
-}
+  }
 };
