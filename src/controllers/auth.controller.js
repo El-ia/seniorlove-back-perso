@@ -3,6 +3,16 @@ import passwordValidator from "password-validator";
 import * as argon2 from "argon2";
 import { Role, User, Label } from "../models/associations.js";
 import { setCookie } from "../middlewares/cookieMiddleware.js";
+import slugify from 'slugify';
+
+// Function to generate slug
+const generateSlug = (name) => {
+  return slugify(name, {
+    lower: true, // Convert to lowercase
+    remove: /[^a-zA-Z0-9 -]/g, // Remove special characters except spaces and hyphens
+    strict: true // Remove any remaining special characters
+  });
+};
 
 const jwtSecret = process.env.JWT_SECRET; // Retrieve the secret key from .env
 
@@ -68,7 +78,8 @@ export const authController = {
         smoker,
         music,
         picture,
-        zodiac
+        zodiac,
+        slug: generateSlug(firstname) // Generate slug based on firstname
       });
 
       // Check if labels are provided and if the labels array is not empty

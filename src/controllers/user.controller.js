@@ -4,10 +4,12 @@ import { userUpdateSchema } from "../schema/user.schema.js";
 
 
 export const userController = {
+  // Handle fetching user account details by email
   getAccountDetails: async (req, res) => {
     try {
-      const userId = req.params.id;
-      const user = await User.findByPk(userId, {
+      const userEmail = req.body.email; // Retrieve user email from request body
+      const user = await User.findOne({
+        where: { email: userEmail },
         include: [
           { model: Role, as: 'role' },
           { model: Message, as: 'sentMessages' },
@@ -53,16 +55,17 @@ export const userController = {
     }
   },
 
-  // Method to update account details
+  // Method to update account details by email
   updateAccountDetails: async (req, res) => {
     try {
-      const userId = req.params.id;
+      const userEmail = req.body.email; // Retrieve user email from request body
       const updatedData = req.body;
 
       // Validate data with Joi
       await userUpdateSchema.validateAsync(updatedData);
 
-      const user = await User.findByPk(userId, {
+      const user = await User.findOne({
+        where: { email: userEmail },
         include: [
           { model: Role, as: 'role' },
           { model: Message, as: 'sentMessages' },
@@ -77,8 +80,12 @@ export const userController = {
       // Update user details
       await user.update(updatedData);
 
+      // Ensure the email is updated in the database by saving the user instance
+      await user.save();
+
       // Refetch the updated user with associations
-      const updatedUser = await User.findByPk(userId, {
+      const updatedUser = await User.findOne({
+        where: { email: updatedData.email || userEmail },
         include: [
           { model: Role, as: 'role' },
           { model: Message, as: 'sentMessages' },
@@ -92,10 +99,13 @@ export const userController = {
     }
   },
 
+  // Method to delete an account by email
   deleteAccount: async (req, res) => {
     try {
-      const userId = req.params.id;
-      const user = await User.findByPk(userId);
+      const userEmail = req.body.email; // Retrieve user email from request body
+      const user = await User.findOne({
+        where: { email: userEmail }
+      });
 
       if (!user) {
         return res.status(404).json({ message: 'Utilisateur non trouvé' });
