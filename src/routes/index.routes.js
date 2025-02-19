@@ -35,6 +35,8 @@ router.route("/api/verify-token")
 router.route("/api/filter-event")
   .get(eventController.lastEvent);
 
+router.route("/api/events")
+  .get(eventController.getAllEvents);
   
 router.route("/api/my-account")
   .get(jwtMiddleware(userController.getAccountDetails)) // Route to get account details

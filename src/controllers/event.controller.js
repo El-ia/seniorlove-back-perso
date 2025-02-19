@@ -6,6 +6,23 @@ import { Op } from 'sequelize';
 
 
 export const eventController = {
+  async getAllEvents(req,res){
+    try {
+      // Fetch all events including associated labels and users
+      const events = await Event.findAll({
+        include: [
+          { model: Label, as: 'label' }, // Include associated labels
+          { model: User, as: 'users' }   // Include associated users
+        ],
+      });
+  
+      // Return the fetched events as a JSON response
+      res.json(events);
+    } catch (error) {
+      // Handle any errors that occur during the fetch
+      res.status(500).json({ message: 'Quelque chose s\'est mal passé', error });
+    }
+  },
 
   async lastEvent(req,res){
     try {
