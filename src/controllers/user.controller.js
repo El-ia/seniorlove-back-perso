@@ -149,5 +149,5 @@ export const userController = {
       console.error(error);
       res.status(500).json({ message: 'Error retrieving profiles' });
     }
-}
+  }
 };
