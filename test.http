@@ -70,16 +70,6 @@ Content-Type: application/json
     "labels": ["Nature", "Culturel"]
 }
 
-###
-# Route to get events from connected page
-GET http://localhost:3000/api/homepage-events
-
-
-###
-# Route to get events from connected page
-GET http://localhost:3000/api/homepage-profiles
-
-
 ### 
 # Route to get up to 4 events from a user connected
 GET http://localhost:3000/api/homepage-events
