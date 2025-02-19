@@ -10,10 +10,13 @@ import { userController } from "../controllers/user.controller.js";
 
 export const router = new Router();
 
-//home page
+// Routes for homepage conected
 
+router.route("/api/homepage-events")
+  .get(jwtMiddleware(eventController.connectedEvent));
 
-
+router.route("/api/homepage-profiles")
+  .get(jwtMiddleware(userController.connectedProfile));
 
 
 // Route for user signup
