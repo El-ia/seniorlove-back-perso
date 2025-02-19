@@ -20,7 +20,7 @@ app.use(helmet());
 app.use(cors({
   origin: "http://localhost:5173", // * = allow everyone (not a best practice, but it's fine for local development),
   credentials: true,
-  methods: "GET, PUT, POST, DELETE",
+  methods: "GET, PUT, POST, PATCH, DELETE",
   allowedHeaders: "Content-Type, Authorization"
 }));
 
