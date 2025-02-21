@@ -21,12 +21,13 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2
 # Route to update account details
 PATCH  http://localhost:3000/api/my-account
 Content-Type: application/json
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDA0MDE0NCwiZXhwIjoxNzQwMDUwOTQ0fQ.LN3DnHYbjJW9HbhYZpQkj3ZZe1YAl-pOBL4G0vXvs4U
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
 
 {
     "firstname": "jean-Claude",
     "city":"LYON",
     "description": "Amateur de beaux arts.",
+    "labels": ["Artistique","Soirée à thème"],
     "smoker": "true",
     "pet": "true",
     "music": "Jazz"
