@@ -21,7 +21,7 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2
 # Route to update account details
 PATCH  http://localhost:3000/api/my-account
 Content-Type: application/json
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDA0MDE0NCwiZXhwIjoxNzQwMDUwOTQ0fQ.LN3DnHYbjJW9HbhYZpQkj3ZZe1YAl-pOBL4G0vXvs4U
 
 {
     "firstname": "jean-Claude",
@@ -35,7 +35,7 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2
 ###
 # Route to delete account details
 DELETE  http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDAzOTg5NSwiZXhwIjoxNzQwMDUwNjk1fQ.Sj7nzbCYbwKybiIhwNk35i1ixds9EDKUWRADvHCrk5M
 
 
 ### 
