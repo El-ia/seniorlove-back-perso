@@ -11,9 +11,10 @@ export const userController = {
       const user = await User.findOne({
         where: { id: userId },
         include: [
-          { model: Role, as: 'role' },
-          { model: Message, as: 'sentMessages' },
-          { model: Message, as: 'receivedMessages' }
+          //{ model: Role, as: 'role' },
+          //{ model: Message, as: 'sentMessages' },
+          //{ model: Message, as: 'receivedMessages' }
+          'role', 'sentMessages', 'receivedMessages', 'labels'
         ]
       });
 
@@ -67,9 +68,10 @@ export const userController = {
       const user = await User.findOne({
         where: { id: userId },
         include: [
-          { model: Role, as: 'role' },
-          { model: Message, as: 'sentMessages' },
-          { model: Message, as: 'receivedMessages' }
+          //{ model: Role, as: 'role' },
+          //{ model: Message, as: 'sentMessages' },
+          //{ model: Message, as: 'receivedMessages' }
+          'role', 'sentMessages', 'receivedMessages', 'labels'
         ]
       });
 
@@ -84,9 +86,10 @@ export const userController = {
       const updatedUser = await User.findOne({
         where: { id: userId },
         include: [
-          { model: Role, as: 'role' },
-          { model: Message, as: 'sentMessages' },
-          { model: Message, as: 'receivedMessages' }
+          //{ model: Role, as: 'role' },
+          //{ model: Message, as: 'sentMessages' },
+          //{ model: Message, as: 'receivedMessages' }
+          'role', 'sentMessages', 'receivedMessages', 'labels'
         ]
       });
 
