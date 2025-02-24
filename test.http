@@ -20,30 +20,28 @@ GET http://localhost:3000/api/filter-event
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4NjQ0NywiZXhwIjoxNzQwMzk3MjQ3fQ.p_CWs6o9zLM6HU_eNgLFXQARhtUaTmPdU27IyUHpSJ8
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4OTY2MiwiZXhwIjoxNzQwNDAwNDYyfQ.9BOd92rNDnhDZSTrDk8Kpt7phUuLnG-hKiFMDBmjX3g
 
 ###
 # Route to update account details
 PATCH  http://localhost:3000/api/my-account
 Content-Type: application/json
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4NjQ0NywiZXhwIjoxNzQwMzk3MjQ3fQ.p_CWs6o9zLM6HU_eNgLFXQARhtUaTmPdU27IyUHpSJ8
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4OTY2MiwiZXhwIjoxNzQwNDAwNDYyfQ.9BOd92rNDnhDZSTrDk8Kpt7phUuLnG-hKiFMDBmjX3g
 
 {
     "firstname": "pierre",
     "city":"LYON",
     "description": "Amateur de beaux arts.",
-    "labels": [3,6],
+    "labels": [2, 6],
     "smoker": "true",
     "pet": "true",
-    "music": "Jazz",
-    "labels": ["Culturel", "Nature"]
+    "music": "Jazz"
 }
 
 ###
 # Route to delete account details
 DELETE  http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDAzOTg5NSwiZXhwIjoxNzQwMDUwNjk1fQ.Sj7nzbCYbwKybiIhwNk35i1ixds9EDKUWRADvHCrk5M
-
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4OTY2MiwiZXhwIjoxNzQwNDAwNDYyfQ.9BOd92rNDnhDZSTrDk8Kpt7phUuLnG-hKiFMDBmjX3g
 
 ### 
 # Route to sign up
