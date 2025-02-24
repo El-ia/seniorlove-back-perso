@@ -178,10 +178,23 @@ export const authController = {
   },
 
   async verifyToken(req, res){
-    if (req.user) {
-      res.status(200).json({ userId: req.user.userId, firstname: req.user.firstname });
-    } else {
-      res.status(401).json({ error: 'Token invalide.' });
-    }
+    try {
+      if (req.user) {
+        res.status(200).json({ userId: req.user.userId, firstname: req.user.firstname });
+      } else {
+        res.status(401).json({ error: 'Token invalide.' });
+      }
+    } catch (error) {
+      return res.status(500).json({ error: 'Une erreur est survenue lors de la connexion.' });
+    }  
   },
+
+  async logout(req, res){
+    try {
+      res.clearCookie('token', { httpOnly: true});
+      res.status(200).json({ message: 'Coucou'});
+    } catch (error) {
+      return res.status(500).json({ error: 'Une erreur est survenue lors de la connexion.' });
+    }  
+  } 
 };

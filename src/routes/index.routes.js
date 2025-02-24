@@ -30,6 +30,9 @@ router.route("/api/signin")
 router.route("/api/verify-token")
   .get(jwtMiddleware(authController.verifyToken));
 
+// Route 
+router.route("/api/logout")
+  .post(jwtMiddleware(authController.logout));
 
 // Route to filter events
 router.route("/api/filter-event")

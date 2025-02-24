@@ -8,6 +8,11 @@ Content-Type: application/json
 }
 
 ###
+# Route to destroy JWT
+POST http://localhost:3000/api/logout
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4NjI2NCwiZXhwIjoxNzQwMzk3MDY0fQ.bePK_wt4wTtPIhv8cXWnlp8SWsDDrfuBVyJKwdJEI3c
+
+###
 # Route to filter events
 GET http://localhost:3000/api/filter-event
 
@@ -15,21 +20,22 @@ GET http://localhost:3000/api/filter-event
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDE0Mzc5OSwiZXhwIjoxNzQwMTU0NTk5fQ.uPS4Iniu65j70cNPqZ1WyE8utE6wDG5SoxtOTSysoao
 
 ###
 # Route to update account details
 PATCH  http://localhost:3000/api/my-account
 Content-Type: application/json
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDE0Mzc5OSwiZXhwIjoxNzQwMTU0NTk5fQ.uPS4Iniu65j70cNPqZ1WyE8utE6wDG5SoxtOTSysoao
 
 {
     "firstname": "jean-Claude",
     "city":"LYON",
-    "description": "Amateur de beaux arts.",
+    "description": "Amateur de bons vins.",
     "smoker": "true",
     "pet": "true",
-    "music": "Jazz"
+    "music": "Jazz",
+    "labels": ["Culturel", "Nature"]
 }
 
 ###
