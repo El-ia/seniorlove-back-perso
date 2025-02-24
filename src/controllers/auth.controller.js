@@ -189,11 +189,11 @@ export const authController = {
       return res.status(500).json({ error: 'Une erreur est survenue lors de la connexion.' });
     }  
   },
-
+  //Logs out the user by removing the authentification token
   async logout(req, res){
     try {
       res.clearCookie('token', { httpOnly: true});
-      res.status(200).json({ message: 'Coucou'});
+      res.status(200).json({ message: 'Succès'});
     } catch (error) {
       return res.status(500).json({ error: 'Une erreur est survenue lors de la connexion.' });
     }  

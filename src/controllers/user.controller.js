@@ -114,9 +114,12 @@ export const userController = {
       if (!user) {
         return res.status(404).json({ message: 'Utilisateur non trouvé' });
       }
+      // Clear authentication token
+      res.clearCookie('token', { httpOnly: true});
 
       // Delete user
       await user.destroy();
+    
 
       res.status(200).json({ message: 'Utilisateur supprimé avec succès' });
     } catch (error) {
@@ -124,6 +127,7 @@ export const userController = {
     }
   },
 
+  // Method to get connected profiles based on user's preferences and city
   connectedProfile: async (req, res) => {
     try {
       const userId = req.user.userId;
