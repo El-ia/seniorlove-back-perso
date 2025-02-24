@@ -43,15 +43,3 @@ router.route("/api/my-account")
   .get(jwtMiddleware(userController.getAccountDetails)) // Route to get account details
   .patch(jwtMiddleware(userController.updateAccountDetails)) // Define the update account details
   .delete(jwtMiddleware(userController.deleteAccount)); // Define the delete account route
-
-
-
-
-
-
-
-
-
-
-
-

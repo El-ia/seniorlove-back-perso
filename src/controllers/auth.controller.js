@@ -178,6 +178,7 @@ export const authController = {
   },
 
   async verifyToken(req, res){
+
     try {
       if (req.user) {
         res.status(200).json({ userId: req.user.userId, firstname: req.user.firstname });

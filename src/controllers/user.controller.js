@@ -14,7 +14,7 @@ export const userController = {
           //{ model: Role, as: 'role' },
           //{ model: Message, as: 'sentMessages' },
           //{ model: Message, as: 'receivedMessages' }
-          'role','sentMessages', 'receivedMessages', 'labels'
+          'role', 'sentMessages', 'receivedMessages', 'labels'
         ]
       });
 
@@ -71,7 +71,7 @@ export const userController = {
           //{ model: Role, as: 'role' },
           //{ model: Message, as: 'sentMessages' },
           //{ model: Message, as: 'receivedMessages' }
-          'role','sentMessages', 'receivedMessages', 'labels'
+          'role', 'sentMessages', 'receivedMessages', 'labels'
         ]
       });
 
@@ -82,6 +82,10 @@ export const userController = {
       // Update user details
       await user.update(updatedData);
 
+      if (updatedData.labels) {
+        await user.setLabels(updatedData.labels);
+      }
+
       // Refetch the updated user with associations
       const updatedUser = await User.findOne({
         where: { id: userId },
@@ -89,7 +93,7 @@ export const userController = {
           //{ model: Role, as: 'role' },
           //{ model: Message, as: 'sentMessages' },
           //{ model: Message, as: 'receivedMessages' }
-          'role','sentMessages', 'receivedMessages', 'labels'
+          'role', 'sentMessages', 'receivedMessages', 'labels'
         ]
       });
 

@@ -64,7 +64,74 @@ await Event.bulkCreate([
   { title: 'Atelier de Sculpture sur Bois', slug: 'atelier-sculpture-bois', description: 'Un atelier pratique pour apprendre les techniques de la sculpture sur bois.', date: '2025-06-03', time: '10:00', city: 'MARSEILLE', street: 'Avenue du Prado', street_number: 18, zip_code: 13006, picture: 'image11.jpg', label_id: 3 },
   { title: 'Soirée Dégustation de Vins', slug: 'soiree-degustation-vins', description: 'Une soirée pour déguster des vins régionaux avec un sommelier expert.', date: '2025-07-28', time: '19:00', city: 'MARSEILLE', street: 'Rue Sainte', street_number: 5, zip_code: 13001, picture: 'image12.jpg', label_id: 2 }
 ]);
+
+async function addLabelToUser(userId, labelId) {
+  const user = await User.findByPk(userId);
+  await user.addLabel(labelId);
+}
+
+// Ajouter des labels à l'utilisateur 1
+await addLabelToUser(1, 1);
+await addLabelToUser(1, 2);
+await addLabelToUser(1, 4);
+await addLabelToUser(2, 1);
+await addLabelToUser(2, 6);
+await addLabelToUser(2, 3);
+await addLabelToUser(3, 3);
+await addLabelToUser(3, 1);
+await addLabelToUser(4, 2);
+await addLabelToUser(4, 5);
+await addLabelToUser(4, 4);
+await addLabelToUser(5, 1);
+await addLabelToUser(5, 6);
+await addLabelToUser(5, 4);
+await addLabelToUser(6, 3);
+await addLabelToUser(6, 2);
+await addLabelToUser(6, 1);
+await addLabelToUser(7, 2);
+await addLabelToUser(7, 5);
+await addLabelToUser(7, 1);
+await addLabelToUser(8, 6);
+await addLabelToUser(8, 3);
+await addLabelToUser(8, 1);
+await addLabelToUser(9, 1);
+await addLabelToUser(9, 2);
+await addLabelToUser(9, 5);
+await addLabelToUser(10, 1);
+await addLabelToUser(10, 5);
+await addLabelToUser(10, 2);
+await addLabelToUser(11, 2);
+await addLabelToUser(11, 1);
+await addLabelToUser(11, 3);
+await addLabelToUser(12, 1);
+await addLabelToUser(12, 5);
+await addLabelToUser(12, 4);
+await addLabelToUser(13, 1);
+await addLabelToUser(13, 4);
+await addLabelToUser(14, 1);
+await addLabelToUser(14, 6);
+await addLabelToUser(14, 4);
+await addLabelToUser(15, 2);
+await addLabelToUser(15, 5);
+await addLabelToUser(15, 1);
+await addLabelToUser(16, 2);
+await addLabelToUser(16, 6);
+await addLabelToUser(16, 4);
+await addLabelToUser(17, 2);
+await addLabelToUser(17, 5);
+await addLabelToUser(17, 4);
+await addLabelToUser(18, 2);
+await addLabelToUser(18, 1);
+await addLabelToUser(18, 3);
+await addLabelToUser(19, 1);
+await addLabelToUser(19, 3);
+await addLabelToUser(19, 6);
+await addLabelToUser(20, 2);
+await addLabelToUser(20, 4);
+await addLabelToUser(20, 5);
+
   
 console.log("✅ Seed done with success !");
 console.log("🧹 Clean up by closing database connection");
 await sequelize.close();
+
