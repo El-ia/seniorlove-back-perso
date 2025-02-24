@@ -37,4 +37,5 @@ export const userUpdateSchema = Joi.object({
   city: Joi.string(),
   music: Joi.string(),
   picture: Joi.string(),
+  labels: Joi.array().items(Joi.number().integer())
 }).required().min(1);

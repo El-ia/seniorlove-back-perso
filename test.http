@@ -15,19 +15,19 @@ GET http://localhost:3000/api/filter-event
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4NjQ0NywiZXhwIjoxNzQwMzk3MjQ3fQ.p_CWs6o9zLM6HU_eNgLFXQARhtUaTmPdU27IyUHpSJ8
 
 ###
 # Route to update account details
 PATCH  http://localhost:3000/api/my-account
 Content-Type: application/json
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTczOTk4NTI2MywiZXhwIjoxNzM5OTk2MDYzfQ.L4La2yQW25pF5IizrdBOwi9g-sHlSIZ-j-rGkeEccU0
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4NjQ0NywiZXhwIjoxNzQwMzk3MjQ3fQ.p_CWs6o9zLM6HU_eNgLFXQARhtUaTmPdU27IyUHpSJ8
 
 {
-    "firstname": "jean-Claude",
+    "firstname": "pierre",
     "city":"LYON",
     "description": "Amateur de beaux arts.",
-    "labels": ["Artistique","Soirée à thème"],
+    "labels": [3,6],
     "smoker": "true",
     "pet": "true",
     "music": "Jazz"
