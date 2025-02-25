@@ -45,7 +45,11 @@ User.init({
     allowNull: false
   },                    
   smoker:{
-    type: DataTypes.BOOLEAN
+    type: DataTypes.BOOLEAN,
+    get() {
+      const rawValue = this.getDataValue('smoker');
+      return rawValue === true ? 'vrai' : 'faux';
+    }
   },
   marital:{
     type: DataTypes.STRING,
@@ -53,8 +57,12 @@ User.init({
   },                 
   pet:{
     type: DataTypes.BOOLEAN,
-    allowNull:false
-  },                         
+    allowNull:false,
+    get() {
+      const rawValue = this.getDataValue('pet');
+      return rawValue === true ? 'vrai' : 'faux';
+    }
+  },                          
   city:{
     type: DataTypes.STRING,
     allowNull:false
