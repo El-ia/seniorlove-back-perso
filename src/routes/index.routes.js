@@ -35,6 +35,7 @@ router.route("/api/verify-token")
 router.route("/api/filter-event")
   .get(eventController.lastEvent);
 
+// Route to get all events
 router.route("/api/events")
   .get(eventController.getAllEvents);
   

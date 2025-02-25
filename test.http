@@ -13,6 +13,11 @@ GET http://localhost:3000/api/filter-event
 
 
 ###
+# Route to events
+GET http://localhost:3000/api/events
+
+
+###
 # Route to get account details
 GET http://localhost:3000/api/my-account
 Content-Type: application/json

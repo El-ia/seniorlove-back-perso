@@ -11,9 +11,7 @@ export const eventController = {
       // Fetch all events including associated labels and users
       const events = await Event.findAll({
         include: [
-          { model: Label, as: 'label' }, // Include associated labels
-          { model: User, as: 'users' }   // Include associated users
-        ],
+          'label','users' ],
       });
   
       // Return the fetched events as a JSON response
