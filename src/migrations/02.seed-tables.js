@@ -1,6 +1,6 @@
 
 import 'dotenv/config';
-import { sequelize } from '../models/client.js';
+import { sequelize } from '../config/database.js';
 import { User, Event, Role, Label, Message } from '../models/associations.js';
 
 console.log("🔄 Seeding started...");

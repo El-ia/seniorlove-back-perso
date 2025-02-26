@@ -7,6 +7,8 @@ Content-Type: application/json
     "password":"Cl@ude1958!"
 }
 
+
+
 ###
 # Route to destroy JWT
 POST http://localhost:3000/api/logout
@@ -15,7 +17,10 @@ Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDUyNDk1
 ###
 # Route to filter events
 GET http://localhost:3000/api/filter-event
+###
 
+GET http://localhost:3000/api/verify-token
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDQ5NTg4MiwiZXhwIjoxNzQwNTA2NjgyfQ.FCv_XdXD_wi-fgfKnm9JgBraRSqWKlwpGAhorMp5eMA
 
 ###
 # Route to events
@@ -25,8 +30,8 @@ GET http://localhost:3000/api/events
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDQ4MDE2NCwiZXhwIjoxNzQwNDkwOTY0fQ.LEVI4txbS2E3Ejyr_Puj54RDJeOaVGe-78Kyh63vjaI
 
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDUyNTEzNCwiZXhwIjoxNzQwNTM1OTM0fQ.19PQmiqti2Z163sRitfQE5Iq8BmF2V97XcXJRCS-Egw
 
 ###
 # Route to update account details
