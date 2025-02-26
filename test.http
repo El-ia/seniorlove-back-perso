@@ -10,7 +10,7 @@ Content-Type: application/json
 ###
 # Route to destroy JWT
 POST http://localhost:3000/api/logout
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDE0MjkzMCwiZXhwIjoxNzQwMTUzNzMwfQ.iTLDG8Y5uAYrPeZQxy2B4Dw26XNNvBLbo7tUivBb0P4
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDUyNDk1NiwiZXhwIjoxNzQwNTM1NzU2fQ.XMNeHM9iKBUdBO-uDDF_2mFQCZOE1xIxp_4sYPjZbmo
 
 ###
 # Route to filter events
@@ -26,20 +26,20 @@ GET http://localhost:3000/api/events
 # Route to get account details
 GET http://localhost:3000/api/my-account
 
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4OTY2MiwiZXhwIjoxNzQwNDAwNDYyfQ.9BOd92rNDnhDZSTrDk8Kpt7phUuLnG-hKiFMDBmjX3g
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDUyNTEzNCwiZXhwIjoxNzQwNTM1OTM0fQ.19PQmiqti2Z163sRitfQE5Iq8BmF2V97XcXJRCS-Egw
 
 ###
 # Route to update account details
 PATCH  http://localhost:3000/api/my-account
 Content-Type: application/json
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDM4OTY2MiwiZXhwIjoxNzQwNDAwNDYyfQ.9BOd92rNDnhDZSTrDk8Kpt7phUuLnG-hKiFMDBmjX3g
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDUyNTEzNCwiZXhwIjoxNzQwNTM1OTM0fQ.19PQmiqti2Z163sRitfQE5Iq8BmF2V97XcXJRCS-Egw
 
 {
     "firstname": "jean-Claude",
     "city":"LYON",
-    "description": "Amateur de beaux arts.",
+    "description": "Peintre en herbe.",
     "labels": [2, 6],
-    "smoker": "true",
+    "smoker": "false",
     "pet": "true",
     "music": "Jazz"
 }
