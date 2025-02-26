@@ -39,6 +39,9 @@ router.route("/api/logout")
 router.route("/api/filter-event")
   .get(errorHandler(eventController.lastEvent));
 
+// Route to get all events
+router.route("/api/events")
+  .get(eventController.getAllEvents);
   
 router.route("/api/my-account")
   .get(jwtMiddleware,errorHandler(userController.getAccountDetails)) // Route to get account details

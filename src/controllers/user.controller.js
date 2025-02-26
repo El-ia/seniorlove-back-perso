@@ -1,7 +1,18 @@
 import { User, Event, Label, Message, Role } from "../models/associations.js";
 import { Op } from "sequelize";
 import { userUpdateSchema } from "../schema/user.schema.js";
+import slugify from 'slugify';
 
+// Function to generate slug
+
+const generateSlug = (name) => {
+  return slugify(name, {
+    lower: true, // Convert to lowercase
+    remove: /[^a-zA-Z0-9 -]/g, // Remove special characters except spaces and hyphens
+    strict: true // Remove any remaining special characters
+  });
+
+};   
 
 export const userController = {
   // Handle fetching user account details by email
@@ -53,26 +64,32 @@ export const userController = {
   },
 
   // Method to update account details by ID
-  updateAccountDetails: async (req, res) => {
-    const userId = req.user.userId; // Retrieve user ID from request body
-    const updatedData = req.body;
+  updateAccountDetails: async (req, res) => {  
 
-    // Validate data with Joi
-    await userUpdateSchema.validateAsync(updatedData);
+      const userId = req.user.userId; // Retrieve user ID from request body
+      const updatedData = req.body;
 
-    const user = await User.findOne({
-      where: { id: userId },
-      include: [
-        //{ model: Role, as: 'role' },
-        //{ model: Message, as: 'sentMessages' },
-        //{ model: Message, as: 'receivedMessages' }
-        'role', 'sentMessages', 'receivedMessages', 'labels'
-      ]
-    });
+      // Validate data with Joi
+      await userUpdateSchema.validateAsync(updatedData);
 
-    if (!user) {
-      return res.status(404).json({ message: 'Utilisateur non trouvé' });
-    }
+      // Generate slug if firstname is being updated
+      if (updatedData.firstname) {
+        updatedData.slug = generateSlug(updatedData.firstname);
+      }
+
+      const user = await User.findOne({
+        where: { id: userId },
+        include: [
+          //{ model: Role, as: 'role' },
+          //{ model: Message, as: 'sentMessages' },
+          //{ model: Message, as: 'receivedMessages' }
+          'role', 'sentMessages', 'receivedMessages', 'labels'
+        ]
+      });
+
+      if (!user) {
+        return res.status(404).json({ message: 'Utilisateur non trouvé' });
+      }
 
     // Update user details
     await user.update(updatedData);
