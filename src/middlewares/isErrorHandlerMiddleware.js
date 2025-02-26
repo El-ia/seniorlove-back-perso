@@ -4,14 +4,17 @@ export const errorHandler = (controller) => async (req, res, next) =>{
     await controller(req,res,next);
   } catch (err) {
     if (err.name === 'UnauthorizedError') {
-      console.log('<< 401 UNAUTHORIZED - Invalid Token');
-      res.status(401).send('Invalid token');
-    } else if (err.message === 'Not found') {
-      console.log('<< 404 NOT FOUND');
-      res.status(404).send('Not found');
+      console.log(err, '<< 401 UNAUTHORIZED');
+      res.status(401).json({err: 'Invalid token'});
+    } else if (err.name === 'NotFoundError') {
+      console.log(err, '<< 404 NOT FOUND');
+      res.status(404).json({err: 'Not found'});
+    }else if(err.name === 'ForbiddenError'){
+      console.log(err,'<< 403 FORBIDDEN ERROR')
+      res.status(403).json({err: 'forbidden error'})
     } else {
-      console.log('<< 500 INTERNAL SERVER ERROR');
-      res.status(500).send('Something went wrong');
+      console.log(err, '<< 500 INTERNAL SERVER ERROR');
+      res.status(500).json({err: 'Something went wrong'});
     }
   }
 };

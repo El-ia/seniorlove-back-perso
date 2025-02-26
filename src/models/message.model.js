@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import { sequelize } from './client.js';
+import { sequelize } from '../config/database.js';
 
 export class Message extends Model{};
 
