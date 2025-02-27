@@ -47,3 +47,7 @@ router.route("/api/my-account")
   .get(jwtMiddleware,errorHandler(userController.getAccountDetails)) // Route to get account details
   .patch(jwtMiddleware,errorHandler(userController.updateAccountDetails)) // Define the update account details
   .delete(jwtMiddleware,errorHandler(userController.deleteAccount)); // Define the delete account route
+
+router.use((req, res) => {
+  res.status(404).json({error: 'Not found'});
+});
