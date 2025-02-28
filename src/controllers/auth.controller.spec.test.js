@@ -26,7 +26,7 @@ test("should add successfully new customer to the database", async() => {
   const res = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn()
-  }
+  };
 
   await authController.signUp(req, res);
 
@@ -77,7 +77,7 @@ test("should return an error password too short", async()=> {
   const res = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn()
-  }
+  };
 
   await authController.signUp(req, res);
 
@@ -103,7 +103,7 @@ test("should return an error email already in the database", async() => {
   const res = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn()
-  }
+  };
 
   await authController.signUp(req, res);
 
@@ -121,7 +121,7 @@ test("should return an error email does not exist in the database", async() => {
   const res = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn()
-  }
+  };
 
   await authController.signIn(req, res);
 
@@ -139,7 +139,7 @@ test("should return 404 if password is not good", async() => {
   const res = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn()
-  }
+  };
 
   await authController.signIn(req, res);
 
@@ -196,7 +196,7 @@ test("Should return 400 if password is missing", async() => {
   const res = {
     status: jest.fn().mockReturnThis(),
     json: jest.fn()
-  }
+  };
 
   await authController.signIn(req, res);
 
@@ -250,23 +250,23 @@ test("Should clear cookie and return 200 on logout", async () => {
 });
 
 test("Should call next if token is valid", () => {
-    const req = {
-      cookies: {
-        token: "valid.token.here",
-      }
-    };
-    const res = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn()
-    };
-    const next = jest.fn();
+  const req = {
+    cookies: {
+      token: "valid.token.here",
+    }
+  };
+  const res = {
+    status: jest.fn().mockReturnThis(),
+    json: jest.fn()
+  };
+  const next = jest.fn();
   
-    jest.spyOn(jwt, 'verify').mockReturnValue({ userId: "12345", firstname: "John" });
+  jest.spyOn(jwt, 'verify').mockReturnValue({ userId: "12345", firstname: "John" });
   
-    jwtMiddleware(req, res, next);
+  jwtMiddleware(req, res, next);
   
-    expect(req.user).toEqual({ userId: "12345", firstname: "John" });
-    expect(next).toHaveBeenCalled();
+  expect(req.user).toEqual({ userId: "12345", firstname: "John" });
+  expect(next).toHaveBeenCalled();
 });
 
 test("Should return 401 if token is invalid", () => {
