@@ -6,7 +6,6 @@ import argon2 from 'argon2';
 beforeEach(async () => {
   await sequelize.sync({ force: true });
 
-  // Insérer un utilisateur persistant
   const hashedPassword = await argon2.hash('Cl@ude1958!');
   await User.create({
     gender: 'Homme',
@@ -24,7 +23,6 @@ beforeEach(async () => {
     zodiac: 'Balance', 
     gender_match: 'Femme', 
     marital: 'Divorcé'
-    // Ajouter les autres champs nécessaires...
   });
 });
 
