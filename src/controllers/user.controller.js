@@ -66,30 +66,30 @@ export const userController = {
   // Method to update account details by ID
   updateAccountDetails: async (req, res) => {  
 
-      const userId = req.user.userId; // Retrieve user ID from request body
-      const updatedData = req.body;
+    const userId = req.user.userId; // Retrieve user ID from request body
+    const updatedData = req.body;
 
-      // Validate data with Joi
-      await userUpdateSchema.validateAsync(updatedData);
+    // Validate data with Joi
+    await userUpdateSchema.validateAsync(updatedData);
 
-      // Generate slug if firstname is being updated
-      if (updatedData.firstname) {
-        updatedData.slug = generateSlug(updatedData.firstname);
-      }
+    // Generate slug if firstname is being updated
+    if (updatedData.firstname) {
+      updatedData.slug = generateSlug(updatedData.firstname);
+    }
 
-      const user = await User.findOne({
-        where: { id: userId },
-        include: [
-          //{ model: Role, as: 'role' },
-          //{ model: Message, as: 'sentMessages' },
-          //{ model: Message, as: 'receivedMessages' }
-          'role', 'sentMessages', 'receivedMessages', 'labels'
-        ]
-      });
+    const user = await User.findOne({
+      where: { id: userId },
+      include: [
+        //{ model: Role, as: 'role' },
+        //{ model: Message, as: 'sentMessages' },
+        //{ model: Message, as: 'receivedMessages' }
+        'role', 'sentMessages', 'receivedMessages', 'labels'
+      ]
+    });
 
-      if (!user) {
-        return res.status(404).json({ message: 'Utilisateur non trouvé' });
-      }
+    if (!user) {
+      return res.status(404).json({ message: 'Utilisateur non trouvé' });
+    }
 
     // Update user details
     await user.update(updatedData);

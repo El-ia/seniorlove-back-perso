@@ -3,8 +3,6 @@
 import { Event, Label, User } from "../models/associations.js";
 import { Op } from 'sequelize';
 
-
-
 export const eventController = {
   async getAllEvents(req,res){
     try {

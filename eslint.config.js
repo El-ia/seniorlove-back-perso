@@ -10,6 +10,7 @@ export default [
       "semi": "error",
       "indent": ["error", 2],
       "no-unused-vars": "off",
+      "no-undef": "off",
     }
   }
 ];
