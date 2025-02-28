@@ -58,7 +58,7 @@ export const authController = {
 
     // Hash the password
     const hashedPassword = await argon2.hash(password);
-    // console.log(hashedPassword);
+    
 
     // Create the user
     const newUser = await User.create({
