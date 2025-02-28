@@ -9,7 +9,6 @@ import helmet from "helmet";
 import { bodySanitizer } from "./src/middlewares/sanitizeMiddleware.js"; // Import body sanitizer middleware
 
 
-import { jwtMiddleware } from "./src/middlewares/jwtMiddleware.js"; // Import JWT middleware
 
 const app = express();
 
@@ -24,25 +23,16 @@ app.use(cors({
   allowedHeaders: "Content-Type, Authorization"
 }));
 
-// Add JWT middleware to add user to req if token exists and is valid
-//app.use(jwtMiddleware);
-
-// Error handling middleware
-// app.use(errorHandler);
 app.use(cookieParser());
 // Body parser configuration (to retrieve form data)
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Allow interpreting data provided in a POST, PATCH, or PUT request as JSON
-
-// Use cookie middleware
-//app.use(setCookie);
 
 // Use body sanitizer middleware before routes
 app.use(bodySanitizer);
 
 // Use routes
 app.use(router);
-
 
 // Start a server
 const PORT = process.env.PORT || 3000; // Fallback value if process.env.PORT is undefined, default to port 3000
