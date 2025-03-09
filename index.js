@@ -3,14 +3,15 @@ import express from "express";
 import { router } from "./src/routes/index.routes.js";
 import cors from "cors"; // Import cors
 import cookieParser from "cookie-parser";
-
+import createMemoryStore from "memorystore";
 import helmet from "helmet";
 
 import { bodySanitizer } from "./src/middlewares/sanitizeMiddleware.js"; // Import body sanitizer middleware
 
-
-
 const app = express();
+
+// Session configuration
+const MemoryStore = createMemoryStore(session);
 
 // Helmet permitted to secure the API by setting various HTTP headers
 app.use(helmet());
