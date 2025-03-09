@@ -14,7 +14,7 @@ app.use(helmet());
 
 // CORS module: specify who can access the API
 app.use(cors({
-  origin: "senior-love-front-3ypf.vercel.app", // * = allow everyone (not a best practice, but it's fine for local development),
+  origin: "https://senior-love-front-3ypf.vercel.app", // * = allow everyone (not a best practice, but it's fine for local development),
   credentials: true,
   methods: "GET, PUT, POST, PATCH, DELETE",
   allowedHeaders: "Content-Type, Authorization"
