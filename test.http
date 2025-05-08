@@ -30,7 +30,7 @@ GET http://localhost:3000/api/events
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJpYXQiOjE3NDU5NDQyMzUsImV4cCI6MTc0NTk1NTAzNX0.jQioavRZNCcJrdm90PaDhGNUxXZs7rReBnwZ6vSBvCE
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDQ4MDE2NCwiZXhwIjoxNzQwNDkwOTY0fQ.LEVI4txbS2E3Ejyr_Puj54RDJeOaVGe-78Kyh63vjaI
 
 
 ###
@@ -72,7 +72,7 @@ Content-Type: application/json
     "marital": "Célibataire", 
     "pet": "false",   
     "city": "TOULOUSE",
-    "description": "<script>je suis une faille XSS</script> Salut, moi ...c’est Gaston, 72 ans, mais mon dos en réclame 80 après chaque partie de pétanque ! J’adore voyager, papoter autour d’un bon café, et surtout raconter des blagues… même si c’est souvent moi qui ris le premier.",
+    "description": "<script>je suis une faille XSS</script> Salut, moi c’est Gaston, 72 ans, mais mon dos en réclame 80 après chaque partie de pétanque ! J’adore voyager, papoter autour d’un bon café, et surtout raconter des blagues… même si c’est souvent moi qui ris le premier.",
     "smoker": "false",
     "music": "rock",
     "picture":"",
