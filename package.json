@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node --watch index.js",
+    "dev": "node --watch -r dotenv/config index.js dotenv_config_path=.env.dev",
+    "comment": "dev node --watch index.js",
     "start": "node index.js",
     "db:create": "psql -U seniorlove -d seniorlove -f './data/01.create-tables.sql'",
     "db:seed": "psql -U seniorlove -d seniorlove -f './data/02.seed-tables.sql'",

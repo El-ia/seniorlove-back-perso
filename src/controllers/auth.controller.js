@@ -19,11 +19,18 @@ export const authController = {
 
   // Handle user sign-up
   async signUp(req, res) {
-    const { email, password, firstname, gender, age, height, marital, pet, city, gender_match, description, smoker, music, picture, zodiac, labels } = req.body;
+    const { email, password, 
+      firstname, gender, age, height, 
+      marital, pet, city, gender_match, 
+      description, smoker, music, picture, 
+      zodiac, labels } = req.body;
 
     // Validate required fields
-    if (!email || !password || !firstname || !gender || !age || !height || !marital || !pet || !city || !gender_match) {
-      return res.status(400).json({ error: 'Tous les champs obligatoires doivent être remplis.' });
+    if (!email || !password || !firstname 
+      || !gender || !age || !height || !marital 
+      || !pet || !city || !gender_match) {
+      return res.status(400).json(
+        { error: 'Tous les champs obligatoires doivent être remplis.' });
     }
 
     // Configure password validator
@@ -141,7 +148,7 @@ export const authController = {
       return res.status(401).json({ error: 'Identifiants incorrects..' });
     }
 
-    //Cookie
+    //Cookie options
     const options = {
       maxAge: 1000 * 60 * 60 * 3, // expire after 3 hours
       httpOnly: true, // Cookie will not be exposed to client side code
@@ -173,6 +180,7 @@ export const authController = {
       res.status(401).json({ error: 'Token invalide.' });
     }
   },
+  
   //Logs out the user by removing the authentification token
   async logout(req, res){
     res.clearCookie('token', { httpOnly: true});

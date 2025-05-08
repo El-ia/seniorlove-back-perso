@@ -7,8 +7,6 @@ import { errorHandler } from "../middlewares/isErrorHandlerMiddleware.js";
 // utliser une fois connecté, sur les routes, le middleware JWT(comme controllerWrapper) 
 
 
-
-
 export const router = new Router();
 
 // Routes for homepage conected

@@ -1,12 +1,10 @@
 import "dotenv/config";
 import { Sequelize } from "sequelize";
 
-//init sequelize connexion with our BDD
+// Initialiser la connexion Sequelize avec la BDD
 export const sequelize = new Sequelize(
   process.env.DATABASE_URL, {
     dialect: 'postgres',
-    connectionString: process.env.PG_URL,
-    ssl: { rejectUnauthorized: false },
     define: {
       createdAt: "created_at",
       updatedAt: "updated_at",

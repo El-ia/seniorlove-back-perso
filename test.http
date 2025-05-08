@@ -30,7 +30,7 @@ GET http://localhost:3000/api/events
 ###
 # Route to get account details
 GET http://localhost:3000/api/my-account
-Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsImlhdCI6MTc0MDQ4MDE2NCwiZXhwIjoxNzQwNDkwOTY0fQ.LEVI4txbS2E3Ejyr_Puj54RDJeOaVGe-78Kyh63vjaI
+Cookie:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIxLCJpYXQiOjE3NDU5NDQyMzUsImV4cCI6MTc0NTk1NTAzNX0.jQioavRZNCcJrdm90PaDhGNUxXZs7rReBnwZ6vSBvCE
 
 
 ###
@@ -61,23 +61,23 @@ POST http://localhost:3000/api/signup
 Content-Type: application/json
 
 {
-    "email": "newuser123@example.com", 
-    "password": "NewPassword2023!",
-    "repeat_password": "NewPassword2023!",  
-    "firstname": "Alice", 
-    "gender": "Femme", 
-    "gender_match": "Homme", 
-    "age": "61", 
-    "height": "165",   
+    "email": "gastondu31@gmail.com", 
+    "password": "Gaston9876!",
+    "repeat_password": "Gaston9876!",  
+    "firstname": "Gaston", 
+    "gender": "Homme", 
+    "gender_match": "Femme", 
+    "age": "72", 
+    "height": "175",   
     "marital": "Célibataire", 
     "pet": "false",   
     "city": "TOULOUSE",
-    "description": "<script>hello</script> j'aime les chats",
+    "description": "<script>je suis une faille XSS</script> Salut, moi ...c’est Gaston, 72 ans, mais mon dos en réclame 80 après chaque partie de pétanque ! J’adore voyager, papoter autour d’un bon café, et surtout raconter des blagues… même si c’est souvent moi qui ris le premier.",
     "smoker": "false",
-    "music": "variété française",
+    "music": "rock",
     "picture":"",
-    "zodiac":"poisson",
-    "labels": ["Nature", "Culturel"]
+    "zodiac":"capricorne",
+    "labels": ["Artistique", "Jeux de société"]
 }
 
 ### 
