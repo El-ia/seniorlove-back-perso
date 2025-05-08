@@ -14,7 +14,7 @@ app.use(helmet());
 
 // CORS module: specify who can access the API
 app.use(cors({
-  origin: ["https://senior-love-front-3ypf.vercel.app", "http://localhost:5173"],
+  origin: ["https://seniorlove-cvqu.onrender.com", "http://localhost:5173"],
   credentials: true,
   methods: "GET, PUT, POST, PATCH, DELETE",
   allowedHeaders: "Content-Type, Authorization"
