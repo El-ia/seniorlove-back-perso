@@ -17,7 +17,8 @@ services:
           path: package.json
   seniorlove-db:
     image: "postgres"  # Use the official Postgres image.
-    environment: # Set environment variables for the database user, password, and database name.
+    environment: 
+      # DATABASE_URL: postgresql://seniorlove:seniorlove@seniorlove-db:5432/seniorlove #Set environment variables for the database user, password, and database name.
       POSTGRES_USER: ${PGUSER}
       POSTGRES_PASSWORD: ${PGPASSWORD}
       POSTGRES_DB: ${PGDATABASE}
